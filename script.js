@@ -26,7 +26,7 @@ Vue.CreateApp( {
         }
 
     },
-    
+
     methods: {
 
     },
