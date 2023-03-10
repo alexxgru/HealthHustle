@@ -26,9 +26,9 @@ Vue.CreateApp( {
         }
 
     },
-    
+
     methods: {
 
     },
 
-})
+}).mount("#app")
