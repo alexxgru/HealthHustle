@@ -9,20 +9,39 @@
     <script src="https://unpkg.com/vue@3/dist/vue.global.js" defer></script>
     <script src="script.js" defer></script>
 </head>
-<body id="app">
-    <header>
-        <nav>
+<body>
+    <div id="app" @load >
+        <header>
+            <nav>
+    
+            </nav>
+            <h1>HealthHustle</h1>  
+            <ul>
+                <li>
+                    <label for="darkmode">
+                        <input id="#darkmode" type="checkbox">
+                        </input >
+                    </label>
+                </li>
+            </ul>    
+        </header>
+        <section id="main">
+            <ul>
+                <li v-for="exercise in exercises"> {{exercise.name}}</li>
+            </ul>
+            <h2>Workouts</h2>
+            <ul>
+                <li v-for="w in workouts">
+                    <h2>{{w.name}}</h2>
+                    <ul>
+                        <li v-for="ex in w.Wexercises">
+                            {{ex.name}}, {{ex.description}}
+                        </li>
+                    </ul>
+                </li>
+            </ul>
 
-        </nav>
-        <h1>HealthHustle</h1>  
-        <ul>
-            <li>
-                <label for="darkmode">
-                    <input id="#darkmode" type="checkbox">
-                    </input >
-                </label>
-            </li>
-        </ul>    
-    </header>
+        </section>
+    </div>
 </body>
 </html>

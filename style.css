@@ -1,12 +1,14 @@
-* {
-    padding: 0;
-    margin: 0;
-    box-sizing: border-box;
-}
 
 :root{
     --main: black;
     --accent: #357960;
+}
+
+
+* {
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
 }
 
 header {
@@ -15,5 +17,7 @@ header {
     align-items: center;
     justify-content: center;
     gap: 40%;
+    color: white;
+    background-color: var(--accent);
     border-bottom: 1px solid var(--accent);
 }
