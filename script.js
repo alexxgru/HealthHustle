@@ -12,4 +12,4 @@ Vue.CreateApp( {
     class: {
 
     }
-})
+}).mount("#app")
