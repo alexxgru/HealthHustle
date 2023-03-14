@@ -17,7 +17,7 @@ class Workout {
 Vue.createApp( {
     data() {
         return {
-            selectedWorkout: null ,
+            selectedWorkout: new Workout("", []),
             exercises: [
             ],
             personalExcersises: [
