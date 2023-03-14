@@ -32,17 +32,16 @@
         </header>
         <section id="main">
             <ul>
-                <li v-for="exercise in exercises"> {{exercise.name}}</li>
+                <li v-for="exercise in selectedWorkout.Wexercises"> {{exercise.name}}</li>
             </ul>
             <h2>Workouts</h2>
             <ul id="workouts">
                 <li v-for="w in workouts" class="workoutdiv">
                     <h2>{{w.name}}</h2>
-                    <ul>
-                        <li v-for="ex in w.Wexercises">
-                            {{ex.name}}, {{ex.description}}
-                        </li>
-                    </ul>
+                    <p>{{w.Wexercises.length}}</p>
+                </li>
+                <li>
+                    <label id="addLabel" for="add"><button id="add"></button></label>
                 </li>
             </ul>
 

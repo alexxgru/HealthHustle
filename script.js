@@ -17,6 +17,7 @@ class Workout {
 Vue.createApp( {
     data() {
         return {
+            selectedWorkout: null ,
             exercises: [
             ],
             personalExcersises: [
@@ -35,6 +36,7 @@ Vue.createApp( {
             }
             let workout =  new Workout("Workout 1", exercisesToAdd);
             this.workouts.push(workout);
+            this.selectedWorkout = workout;
         }, 
         async created() {
             return new Promise(async resolve => {
