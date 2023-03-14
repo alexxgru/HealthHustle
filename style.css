@@ -11,6 +11,10 @@
     box-sizing: border-box;
 }
 
+body {
+    font-family: 'Titillium Web',sans-serif;
+}
+
 header {
     display: flex;
     height: 5em;
@@ -20,4 +24,9 @@ header {
     color: white;
     background-color: var(--accent);
     border-bottom: 1px solid var(--accent);
+}
+
+#main {
+    width: clamp(400px, 100%, 900px);
+    margin: auto;
 }

@@ -1,37 +1,42 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>ActiveAvenue</title>
     <link rel="stylesheet" href="style.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Titillium+Web:wght@200&display=swap" rel="stylesheet">
     <script src="https://unpkg.com/vue@3/dist/vue.global.js" defer></script>
     <script src="script.js" defer></script>
 </head>
+
 <body>
-    <div id="app" @load >
+    <div id="app" @load>
         <header>
             <nav>
-    
+
             </nav>
-            <h1>HealthHustle</h1>  
+            <h1>HealthHustle</h1>
             <ul>
                 <li>
                     <label for="darkmode">
                         <input id="#darkmode" type="checkbox">
-                        </input >
+                        </input>
                     </label>
                 </li>
-            </ul>    
+            </ul>
         </header>
         <section id="main">
             <ul>
                 <li v-for="exercise in exercises"> {{exercise.name}}</li>
             </ul>
             <h2>Workouts</h2>
-            <ul>
-                <li v-for="w in workouts">
+            <ul id="workouts">
+                <li v-for="w in workouts" class="workoutdiv">
                     <h2>{{w.name}}</h2>
                     <ul>
                         <li v-for="ex in w.Wexercises">
@@ -44,4 +49,5 @@
         </section>
     </div>
 </body>
+
 </html>
