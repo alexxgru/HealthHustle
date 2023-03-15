@@ -55,8 +55,7 @@ header {
     width: 3.5em;
     height: 1.5em;
     border-radius: 1.2em;
-    background-color: rgba(185, 185, 185, 0.178);
-}
+    background-color: rgb(102, 102, 102);}
 
 #darkmode .toggle {
     width: 1.34em;
