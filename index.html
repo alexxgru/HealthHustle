@@ -53,10 +53,10 @@
                         <button type="submit">Add Workout</button>
                         <button @click="closePopup">Close Window</button>
                         <p v-if="alert"> You must select atleast one exercise!</p>
-                        <ul class="exercise-list">
-                            <li v-for="ex in exercises" @click="addExerciseToWorkout(ex), $event.target.classList.toggle('selected')">{{ex.name}}</li>
-                        </ul>
                     </form>
+                    <ul class="exercise-list">
+                        <li v-for="ex in exercises" @click="addExerciseToWorkout(ex), $event.target.classList.toggle('selected')">{{ex.name}}</li>
+                    </ul>
                 </div>
             </template>
         </section>
