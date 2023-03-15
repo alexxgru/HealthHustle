@@ -35,7 +35,10 @@ Vue.createApp({
             personalExcersises: [
             ],
             workouts: [
-            ]
+            ],
+
+            // Dark mode
+            darkmode: false
         }
 
     },

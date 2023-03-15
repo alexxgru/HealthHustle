@@ -18,17 +18,14 @@
     <div id="app" @load>
         <header>
             <nav>
-
             </nav>
             <h1>HealthHustle</h1>
-            <ul>
-                <li>
-                    <label for="darkmode">
-                        <input id="#darkmode" type="checkbox">
-                        </input>
-                    </label>
-                </li>
-            </ul>
+
+            <label id="darkmode">
+                <input type="checkbox" v-model="darkmode" @onclick>
+                <div class="toggle"></div>
+            </label>
+
         </header>
         <section id="main">
             <ul>
@@ -55,9 +52,15 @@
                         <p v-if="alert"> You must select atleast one exercise!</p>
                     </form>
                     <ul class="exercise-list">
+<<<<<<< Updated upstream
                         <li v-for="ex in exercises" @mouseover="exercise = ex" @mouseleave="resetExercise"@click="addExerciseToWorkout(ex), $event.target.classList.toggle('selected')">{{ex.name}}</li>
                         <li id="AddExerciseLI"><label id="AddExerciseLabel"><button @click="showExerciseForm = true" style="border: none;"></button></label>
                     
+=======
+                        <li v-for="ex in exercises" @mouseover="exercise = ex" @mouseleave="resetExercise"
+                            @click="addExerciseToWorkout(ex), $event.target.classList.toggle('selected')">{{ex.name}}
+                        </li>
+>>>>>>> Stashed changes
                     </ul>
                     <div id="exercise-adder" v-if="showExerciseForm"> 
                         <form @submit.prevent="addExercise">

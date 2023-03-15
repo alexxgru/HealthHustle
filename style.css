@@ -29,6 +29,35 @@ header {
     border-bottom: 1px solid var(--accent);
 }
 
+/*--------------
+    dark mode button css
+------------------*/
+
+#darkmode input{
+    display: none;
+}
+
+#darkmode {
+    border: 3px solid white;
+    width: 3.5em;
+    height: 1.5em;
+    border-radius: 1.2em;
+    background-color: rgba(185, 185, 185, 0.178);
+}
+
+#darkmode .toggle {
+    width: 1.34em;
+    height: 100%;
+    background-color: white;
+    border-radius: 1em;
+    transition: transform 200ms ease;
+}
+
+#darkmode input:checked + .toggle{
+    transform: translateX(2em);
+}
+
+/* ---------------------------*/
 #main {
     width: clamp(400px, 100%, 900px);
     margin: auto;
