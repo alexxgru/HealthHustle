@@ -43,6 +43,13 @@ Vue.createApp({
 
     },
 
+    watch: {
+        // If darkmode changes, update value in LS
+        darkmode(newVal) {
+            localStorage.setItem('darkmode', newVal);
+        }
+    },
+
     methods: {
         createWorkouts() {
             //creates example workouts
@@ -82,6 +89,7 @@ Vue.createApp({
             this.exercisesInWorkout = [];
             this.workoutname = "";
             this.showExerciseForm = false;
+
         },
         addExerciseToWorkout(ex) {
             this.alert = false;
@@ -112,18 +120,29 @@ Vue.createApp({
             this.exercises.push(exercise);
         },
         toggleDarkmode() {
-            if (this.darkmode) { 
+            if (this.darkmode) {
                 this.$el.ownerDocument.documentElement.classList.add('darkmode')
             }
             else {
                 this.$el.ownerDocument.documentElement.classList.remove('darkmode')
             }
+        },
+        getDarkModeSettings(){
+            const savedDarkmode = localStorage.getItem('darkmode');
+            if (savedDarkmode !== null) {
+            this.darkmode = (savedDarkmode === 'true');
+            }
         }
     },
-
-
+    mounted(){
+        setTimeout( () => {
+            document.body.classList.remove('no-transition')
+        }, 500)
+    },
     async beforeMount() {
+        this.getDarkModeSettings();
         await this.created();
         this.createWorkouts();
+        this.toggleDarkmode();
     }
 }).mount("#app")
