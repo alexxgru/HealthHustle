@@ -36,7 +36,7 @@
             </ul>
             <h2>Workouts</h2>
             <ul id="workouts">
-                <li v-for="w in workouts" class="workoutdiv">
+                <li v-for="w in workouts" @click="selectedWorkout = w" class="workoutdiv">
                     <h2>{{w.name}}</h2>
                     <p>{{w.Wexercises.length}}</p>
                 </li>

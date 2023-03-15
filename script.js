@@ -35,7 +35,9 @@ Vue.createApp( {
                 exercisesToAdd.push(this.exercises[i])
             }
             let workout =  new Workout("Workout 1", exercisesToAdd);
+            let workout2 = new Workout("Workout 2", [this.exercises[1]]);
             this.workouts.push(workout);
+            this.workouts.push(workout2);
             this.selectedWorkout = workout;
         }, 
         async created() {
