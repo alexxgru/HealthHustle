@@ -55,8 +55,13 @@
                         <p v-if="alert"> You must select atleast one exercise!</p>
                     </form>
                     <ul class="exercise-list">
-                        <li v-for="ex in exercises" @click="addExerciseToWorkout(ex), $event.target.classList.toggle('selected')">{{ex.name}}</li>
+                        <li v-for="ex in exercises" @mouseover="exercise = ex" @mouseleave="resetExercise"@click="addExerciseToWorkout(ex), $event.target.classList.toggle('selected')">{{ex.name}}</li>
                     </ul>
+                    <div id="exercise-info" v-if="exercise.name != ''">
+                        <h3> {{exercise.name}} </h3>
+                        <p> {{exercise.description}}</p>
+                        <p>{{exercise.muscleGroups}}</p>
+                    </div>
                 </div>
             </template>
         </section>

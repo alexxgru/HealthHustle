@@ -22,6 +22,7 @@ Vue.createApp({
             exercisesInWorkout: [],
             workoutname: "",
             alert: false,
+            exercise: new Exercise("","",""),
 
 
             //Other
@@ -95,6 +96,9 @@ Vue.createApp({
             let workout = new Workout(this.workoutname, this.exercisesInWorkout);
             this.workouts.push(workout);
             this.closePopup();
+        },
+        resetExercise() {
+            this.exercise = new Exercise("","","");
         }
     },
 
