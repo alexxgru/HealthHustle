@@ -67,6 +67,8 @@ Vue.createApp({
                 }
             })
         },
+
+
         closePopup() {
             // Hide popup and reset data
             this.popup = false;
@@ -76,7 +78,7 @@ Vue.createApp({
         addExerciseToWorkout(ex) {
             this.alert = false;
 
-            //Add/remove excercise from list
+            // Add/remove excercise from list
             const index = this.exercisesInWorkout.findIndex(x => x.name === ex.name);
             if (index !== -1) {
                 this.exercisesInWorkout.splice(index, 1);
@@ -95,6 +97,8 @@ Vue.createApp({
             this.closePopup();
         }
     },
+
+    
     async beforeMount() {
         await this.created();
         this.createWorkouts();

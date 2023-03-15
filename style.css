@@ -75,6 +75,7 @@ header {
 
 #popup {
     position: absolute;
+    border-radius: 0.5em;
     width: clamp(350px, 90%, 900px);    
     margin: auto;
     background-color: var(--accent);
