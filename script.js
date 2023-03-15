@@ -21,9 +21,10 @@ Vue.createApp({
             popup: false,
             exercisesInWorkout: [],
             workoutname: "",
+            alert: false,
 
 
-
+            //Other
             selectedWorkout: new Workout("", []),
             exercises: [
             ],
@@ -37,6 +38,7 @@ Vue.createApp({
 
     methods: {
         createWorkouts() {
+            //creates example workouts
             let exercisesToAdd = [];
             for (let i = 0; i < 4; i++) {
                 exercisesToAdd.push(this.exercises[i])
@@ -66,11 +68,15 @@ Vue.createApp({
             })
         },
         closePopup() {
+            // Hide popup and reset data
             this.popup = false;
             this.exercisesInWorkout = [];
             this.workoutname = "";
         },
         addExerciseToWorkout(ex) {
+            this.alert = false;
+
+            //Add/remove excercise from list
             const index = this.exercisesInWorkout.findIndex(x => x.name === ex.name);
             if (index !== -1) {
                 this.exercisesInWorkout.splice(index, 1);
@@ -79,6 +85,11 @@ Vue.createApp({
             }
         },
         addWorkout() {
+            // Must have atleast one exercise selected to create a workout
+            if (this.exercisesInWorkout.length == 0) {
+                this.alert = true;
+                return;
+            }
             let workout = new Workout(this.workoutname, this.exercisesInWorkout);
             this.workouts.push(workout);
             this.closePopup();

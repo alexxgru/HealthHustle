@@ -45,6 +45,7 @@ header {
     list-style: none;
     background-color: white;
     width: clamp(100px, 25%, 300px);
+    min-height: 130px;
     border-radius: 2em;
     box-shadow: 0 0 5px 3px grey;
 }
@@ -68,6 +69,10 @@ header {
     cursor: pointer;
 }
 
+/* --------------------------------
+    Popup styling 
+---------------------*/
+
 #popup {
     position: absolute;
     width: clamp(350px, 90%, 900px);    
@@ -80,3 +85,4 @@ header {
 .selected {
     color: red;
 }
+
