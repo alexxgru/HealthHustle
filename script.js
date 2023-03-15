@@ -81,6 +81,7 @@ Vue.createApp({
             this.popup = false;
             this.exercisesInWorkout = [];
             this.workoutname = "";
+            this.showExerciseForm = false;
         },
         addExerciseToWorkout(ex) {
             this.alert = false;

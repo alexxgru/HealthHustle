@@ -134,7 +134,7 @@ header {
     margin: auto;
     background-color: var(--accent);
     z-index: 1;
-    margin-top: -2em;
+    margin-top: 2em;
 }
 
 .exercise-list {
@@ -170,6 +170,7 @@ li.selected {
     padding: 0;
     
 }
+
 #AddExerciseLabel{
     background-image: url(imgs/add.png);
     background-repeat: no-repeat;
