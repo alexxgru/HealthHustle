@@ -52,15 +52,8 @@
                         <p v-if="alert"> You must select atleast one exercise!</p>
                     </form>
                     <ul class="exercise-list">
-<<<<<<< Updated upstream
                         <li v-for="ex in exercises" @mouseover="exercise = ex" @mouseleave="resetExercise"@click="addExerciseToWorkout(ex), $event.target.classList.toggle('selected')">{{ex.name}}</li>
                         <li id="AddExerciseLI"><label id="AddExerciseLabel"><button @click="showExerciseForm = true" style="border: none;"></button></label>
-                    
-=======
-                        <li v-for="ex in exercises" @mouseover="exercise = ex" @mouseleave="resetExercise"
-                            @click="addExerciseToWorkout(ex), $event.target.classList.toggle('selected')">{{ex.name}}
-                        </li>
->>>>>>> Stashed changes
                     </ul>
                     <div id="exercise-adder" v-if="showExerciseForm"> 
                         <form @submit.prevent="addExercise">
@@ -70,7 +63,7 @@
                         <button @click="showExerciseForm=false">Close Window</button>
                         </form>
                     </div>
-                    <div id="exercise-info" v-if="exercise.name != ''">
+                    <div id="exercise-info" v-if="exercise.name != '' && !showExerciseForm">
                         <h3> {{exercise.name}} </h3>
                         <p> {{exercise.description}}</p>
                         <p> <strong>Primary muscles:</strong>  {{exercise.muscleGroups}}</p>
