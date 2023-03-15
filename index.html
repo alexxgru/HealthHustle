@@ -49,19 +49,30 @@
             <template v-if="popup">
                 <div id="popup" ref="popup" tabindex="0">
                     <form @submit.prevent="addWorkout">
-                        <input type="text" v-model="workoutname" placeholder="Name Your Workout" autofocus required>
+                        <input type="text" v-model="workoutname" placeholder="Name your workout..." autofocus required>
                         <button type="submit">Add Workout</button>
                         <button @click="closePopup">Close Window</button>
                         <p v-if="alert"> You must select atleast one exercise!</p>
                     </form>
                     <ul class="exercise-list">
                         <li v-for="ex in exercises" @mouseover="exercise = ex" @mouseleave="resetExercise"@click="addExerciseToWorkout(ex), $event.target.classList.toggle('selected')">{{ex.name}}</li>
+                        <li id="AddExerciseLI"><label id="AddExerciseLabel"><button @click="showExerciseForm = true" style="border: none;"></button></label>
+                    
                     </ul>
+                    <div id="exercise-adder" v-if="showExerciseForm"> 
+                        <form @submit.prevent="addExercise">
+                        <input type="text" v-model="newExerciseName" placeholder="Name your exercise..." autofocus required>
+                        <input type="text" v-model="newExerciseDescription" placeholder="Write a description...">
+                        <button type="submit">Add Exercise</button>
+                        <button @click="showExerciseForm=false">Close Window</button>
+                        </form>
+                    </div>
                     <div id="exercise-info" v-if="exercise.name != ''">
                         <h3> {{exercise.name}} </h3>
                         <p> {{exercise.description}}</p>
-                        <p>{{exercise.muscleGroups}}</p>
+                        <p> <strong>Primary muscles:</strong>  {{exercise.muscleGroups}}</p>
                     </div>
+                    
                 </div>
             </template>
         </section>

@@ -23,6 +23,9 @@ Vue.createApp({
             workoutname: "",
             alert: false,
             exercise: new Exercise("","",""),
+            showExerciseForm: false,
+            newExerciseName: "",
+            newExerciseDescription: "",
 
 
             //Other
@@ -99,6 +102,13 @@ Vue.createApp({
         },
         resetExercise() {
             this.exercise = new Exercise("","","");
+        },
+        addExercise(){
+            let exercise = new Exercise(this.newExerciseName, this.NewExerciseDescription, 'MusclesIDK')
+            this.exercises.push(exercise);
+
+
+
         }
     },
 
