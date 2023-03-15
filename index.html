@@ -41,10 +41,21 @@
                     <p>{{w.Wexercises.length}}</p>
                 </li>
                 <li>
-                    <label id="addLabel" for="add"><button id="add"></button></label>
+                    <label id="addLabel" @click="popup = true" for="add"><button id="add"></button></label>
                 </li>
             </ul>
-
+            <template v-if="popup">
+                <div id="popup" ref="popup" tabindex="0">
+                    <form @submit.prevent="addWorkout">
+                        <input type="text" v-model="workoutname" placeholder="Name Your Workout" autofocus>
+                        <button type="submit">Add Workout</button>
+                        <button @click="closePopup">Close Window</button>
+                        <ul>
+                            <li v-for="ex in exercises" @click="addExerciseToWorkout(ex), $event.target.classList.toggle('selected')"> <p>{{ex.name}}</p></li>
+                        </ul>
+                    </form>
+                </div>
+            </template>
         </section>
     </div>
 </body>
