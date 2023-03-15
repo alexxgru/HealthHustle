@@ -104,7 +104,7 @@ Vue.createApp({
             this.exercise = new Exercise("","","");
         },
         addExercise(){
-            let exercise = new Exercise(this.newExerciseName, this.NewExerciseDescription, 'MusclesIDK')
+            let exercise = new Exercise(this.newExerciseName, this.newExerciseDescription, 'MusclesIDK')
             this.exercises.push(exercise);
 
 
