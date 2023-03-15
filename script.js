@@ -22,7 +22,7 @@ Vue.createApp({
             exercisesInWorkout: [],
             workoutname: "",
             alert: false,
-            exercise: new Exercise("","",""),
+            exercise: new Exercise("", "", ""),
             showExerciseForm: false,
             newExerciseName: "",
             newExerciseDescription: "",
@@ -104,18 +104,23 @@ Vue.createApp({
             this.closePopup();
         },
         resetExercise() {
-            this.exercise = new Exercise("","","");
+            this.exercise = new Exercise("", "", "");
         },
-        addExercise(){
+        addExercise() {
             let exercise = new Exercise(this.newExerciseName, this.newExerciseDescription, 'MusclesIDK')
             this.exercises.push(exercise);
-
-
-
+        },
+        toggleDarkmode() {
+            if (this.darkmode) { 
+                this.$el.ownerDocument.documentElement.classList.add('darkmode')
+            }
+            else {
+                this.$el.ownerDocument.documentElement.classList.remove('darkmode')
+            }
         }
     },
 
-    
+
     async beforeMount() {
         await this.created();
         this.createWorkouts();

@@ -13,7 +13,6 @@
     <script src="https://unpkg.com/vue@3/dist/vue.global.js" defer></script>
     <script src="script.js" defer></script>
 </head>
-
 <body>
     <div id="app" @load>
         <header>
@@ -22,7 +21,7 @@
             <h1>HealthHustle</h1>
 
             <label id="darkmode">
-                <input type="checkbox" v-model="darkmode" @onclick>
+                <input type="checkbox" v-model="darkmode" @change="toggleDarkmode">
                 <div class="toggle"></div>
             </label>
 

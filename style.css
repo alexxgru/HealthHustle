@@ -3,6 +3,17 @@
     --main: black;
     --accent: #357960;
     --background: #f6f6f6;
+    --background-2: white;
+    --hover-li: #e6e6e6;
+    --text-color: black;
+}
+
+:root.darkmode {
+    --accent: #357960;
+    --background: #1a1a1a;
+    --background-2: #242424;
+    --hover-li: rgb(49, 49, 49);
+    --text-color: white;
 }
 
 
@@ -16,6 +27,8 @@ body {
     font-family: 'Titillium Web',sans-serif;
     background-color: var(--background);
     z-index: -1;
+    color: var(--text-color);
+    transition: background-color 500ms ease, color 500ms ease;
 }
 
 header {
@@ -57,7 +70,12 @@ header {
     transform: translateX(2em);
 }
 
-/* ---------------------------*/
+/* ---------------------------
+
+
+
+----------------------------
+*/
 #main {
     width: clamp(400px, 100%, 900px);
     margin: auto;
@@ -72,7 +90,7 @@ header {
 
 #workouts li {
     list-style: none;
-    background-color: white;
+    background-color: var(--background-2);
     width: clamp(100px, 25%, 300px);
     min-height: 130px;
     border-radius: 2em;
@@ -84,7 +102,7 @@ header {
 }
 
 #workouts > :hover, #AddExerciseLabel:hover {
-    background-color: #e6e6e6;
+    background-color: var(--hover-li);
     cursor: pointer;
 }
 
@@ -132,7 +150,7 @@ header {
 
 .exercise-list li {
     padding: 1em;
-    background-color: #f6f6f6;
+    background-color: var(--background);
     cursor: pointer;
     border: 1px solid transparent;
     border-radius: 1em;
