@@ -44,6 +44,8 @@
                     <label id="addLabel" @click="popup = true" for="add"><button id="add"></button></label>
                 </li>
             </ul>
+
+            <!-- HTML for creating workout popup -->
             <template v-if="popup">
                 <div id="popup" ref="popup" tabindex="0">
                     <form @submit.prevent="addWorkout">
@@ -51,8 +53,8 @@
                         <button type="submit">Add Workout</button>
                         <button @click="closePopup">Close Window</button>
                         <p v-if="alert"> You must select atleast one exercise!</p>
-                        <ul id="excercise-list">
-                            <li v-for="ex in exercises" @click="addExerciseToWorkout(ex), $event.target.classList.toggle('selected')"> <p>{{ex.name}}</p></li>
+                        <ul class="exercise-list">
+                            <li v-for="ex in exercises" @click="addExerciseToWorkout(ex), $event.target.classList.toggle('selected')">{{ex.name}}</li>
                         </ul>
                     </form>
                 </div>

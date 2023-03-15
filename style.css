@@ -82,7 +82,27 @@ header {
     margin-top: -2em;
 }
 
-.selected {
+.exercise-list {
+    list-style: none;
+    display: flex;
+    flex-wrap: wrap;
+    gap: 1em;
+    width: 90%;
+    margin: auto;
+    padding: 1em;
+}
+
+.exercise-list li {
+    padding: 1em;
+    background-color: #f6f6f6;
+    cursor: pointer;
+    border: 1px solid transparent;
+    border-radius: 1em;
+    transition: all 500ms ease;
+}
+
+li.selected {
     color: red;
+    border: 1px solid black;
 }
 
