@@ -140,6 +140,12 @@ h3 {
     cursor: pointer;
 }
 
+#workouts li:last-child{
+    max-width: 100px;
+    background-color: transparent;
+    box-shadow: none;
+}
+
 
 #add {
     visibility: hidden;
@@ -205,6 +211,7 @@ li.selected {
 
 #AddExerciseLI{
     padding: 0;
+    background-color: transparent;
     
 }
 
@@ -228,23 +235,34 @@ li.selected {
     Add Workout form css
 ---------------------*/
 
+#exercise-adder{
+    display: flex;
+    align-items: center;
+    height: 100px;
+    margin-left: 3.75em;
+}
+
+#exercise-adder *{
+    margin-right: 5px;
+}
+
 #workout-form {
     margin-left: 4em;
 }
 
-#workout-form input {
+#workout-form input, #exercise-adder input {
     padding: 0.5em;
     border-radius: 0.6em;
     background-color: var(--background);
     color: var(--text-color);
 }
 
-#workout-form input::placeholder {
+#workout-form input::placeholder, #exercise-adder input::placeholder {
     color: var(--text-color);
     opacity: 0.8;
 }
 
-#workout-form button {
+#workout-form button, #exercise-adder button {
     margin-left: 1em;
     padding: 0.5em;
 }
