@@ -35,7 +35,8 @@
                     <p>Reps: </p>
                     <input class="repcount" type="number" :value="selectedWorkout.repsPerExercise" @input="selectedWorkout.repsPerExercise = $event.target.value">
                 </div>
-                <h3>{{selectedWorkout.CalcCalories}}</h3>
+                <h3>{{selectedWorkout.calcCalories}}</h3>
+                <h3>{{selectedWorkout.estimateTime}}</h3>
                 <ul>
                     <li v-for="exercise in selectedWorkout.Wexercises"><strong>{{exercise.name}}</strong> 
                         <label id="delete-exercise">

@@ -21,8 +21,30 @@ class Workout {
         this.repsPerExercise = reps;
     }
 
-    get CalcCalories() {
-        return this.setsPerExercise * this.repsPerExercise * this.Wexercises.length * 0.75;
+
+
+    // ballpark estimates of calorie burn and duration of workout
+
+    get calcCalories() {
+        return this.setsPerExercise * this.repsPerExercise * this.Wexercises.length * 0.25;
+    }
+
+    get estimateTime() {
+        //Seconds of rest between each set
+        let restTime = 30;
+
+        let workoutduration = ((this.repsPerExercise * this.Wexercises.length * this.setsPerExercise * 4) +
+            this.setsPerExercise * restTime) / 60;
+
+        let hours = Math.floor(workoutduration / 60);
+        let minutes = Math.floor(workoutduration - hours * 60); 
+        
+        if (hours === 0) {
+            return minutes + "m";
+        }
+        else {
+            return hours + ' h ' + minutes +  ' m';
+        }
     }
 }
 
