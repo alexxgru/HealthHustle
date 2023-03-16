@@ -26,7 +26,7 @@ class Workout {
     // ballpark estimates of calorie burn and duration of workout
 
     get calcCalories() {
-        return this.setsPerExercise * this.repsPerExercise * this.Wexercises.length * 0.25;
+        return Math.floor(this.setsPerExercise * this.repsPerExercise * this.Wexercises.length * 0.45);
     }
 
     get estimateTime() {
@@ -151,7 +151,7 @@ Vue.createApp({
                 this.alert = true;
                 return;
             }
-            let workout = new Workout(this.workoutname, this.exercisesInWorkout);
+            let workout = new Workout(this.workoutname, this.exercisesInWorkout, 5, 10);
             this.workouts.push(workout);
             this.closePopup();
         },

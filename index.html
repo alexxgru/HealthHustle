@@ -52,7 +52,9 @@
             <ul id="workouts">
                 <li v-for="w in workouts" @click="selectedWorkout = w" class="workoutdiv">
                     <h2>{{w.name}}</h2>
-                    <p>{{w.Wexercises.length}} {{w.Wexercises.length == 1 ? "exercise" : "exercises"}}</p>
+                    <p><span id="workout-icon"></span>{{w.Wexercises.length}} {{w.Wexercises.length == 1 ? "exercise" : "exercises"}}</p>
+                    <p><span id="time-icon"></span>{{w.estimateTime}}</p>
+                    <p><span id="cal-icon"></span>{{w.calcCalories}} calories</p>
                 </li>
                 <li>
                     <label id="addLabel" @click="popup = true" for="add"><button id="add"></button></label>
