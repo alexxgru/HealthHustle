@@ -84,7 +84,7 @@
                         <input type="text" v-model="newExerciseName" placeholder="Name your exercise..." autofocus required>
                         <input type="text" v-model="newExerciseDescription" placeholder="Write a description...">
                         <button type="submit">Add Exercise</button>
-                        <button @click="showExerciseForm=false">Close Window</button>
+                        <label><button @click="showExerciseForm=false">❌</button></label>
                         </form>
                     </div>
                     <div id="exercise-info" v-if="exercise.name != '' && !showExerciseForm">
