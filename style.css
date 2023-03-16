@@ -18,8 +18,8 @@
     --hover-li: rgb(49, 49, 49);
     --text-color: white;
     --situp-logo: url(./imgs/situps_light.png);
-    --time-logo: url(./imgs/cals_light.png);
-    --cals-logo: url(./imgs/situps_light.png);
+    --time-logo: url(./imgs/time_light.png);
+    --cals-logo: url(./imgs/cals_light.png);
 }
 
 
@@ -110,11 +110,18 @@ h3 {
     box-shadow: 0 0 5px 3px grey;
 }
 
+#workouts p {
+    height: 20px;
+    margin: 0.4em;
+    display: flex;
+    align-items: self-start;
+}
+
 #workouts li span {
     display: inline-block;
     width: 20px;
     height: 20px;
-    margin: 0.5em 1em 0 0;
+    margin: 0em 0.5em 0 0;
     background-position: center;
     background-size: contain;
 }

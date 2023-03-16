@@ -40,7 +40,7 @@ class Workout {
         let minutes = Math.floor(workoutduration - hours * 60); 
         
         if (hours === 0) {
-            return minutes + "m";
+            return minutes + " m";
         }
         else {
             return hours + ' h ' + minutes +  ' m';
