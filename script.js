@@ -94,6 +94,8 @@ Vue.createApp({
         addExerciseToWorkout(ex) {
             this.alert = false;
 
+            this.showExerciseForm = false;
+
             // Add/remove excercise from list
             const index = this.exercisesInWorkout.findIndex(x => x.name === ex.name);
             if (index !== -1) {
@@ -113,7 +115,7 @@ Vue.createApp({
             this.closePopup();
         },
         resetExercise() {
-            this.exercise = new Exercise("", "", "");
+            
         },
         addExercise() {
             let exercise = new Exercise(this.newExerciseName, this.newExerciseDescription, 'MusclesIDK')

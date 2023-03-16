@@ -27,9 +27,12 @@
 
         </header>
         <section id="main">
-            <ul>
-                <li v-for="exercise in selectedWorkout.Wexercises"> {{exercise.name}}</li>
-            </ul>
+            <section id="workout-info">
+                <h3>{{selectedWorkout.name}}</h3>
+                <ul>
+                    <li v-for="exercise in selectedWorkout.Wexercises"> {{exercise.name}}</li>
+                </ul>
+            </section>
             <h2>Workouts</h2>
             <ul id="workouts">
                 <li v-for="w in workouts" @click="selectedWorkout = w" class="workoutdiv">
@@ -44,14 +47,19 @@
             <!-- HTML for creating workout popup -->
             <template v-if="popup">
                 <div id="popup" ref="popup" tabindex="0">
-                    <form @submit.prevent="addWorkout">
-                        <input type="text" v-model="workoutname" placeholder="Name your workout..." autofocus required>
+                    <h3>Workout Builder</h3>
+                    <form id="workout-form" @submit.prevent="addWorkout">
+                        <input type="text" v-model="workoutname" placeholder="Name your workout" autofocus required>
                         <button type="submit">Add Workout</button>
-                        <button @click="closePopup">Close Window</button>
-                        <p v-if="alert"> You must select atleast one exercise!</p>
+                        <p id="alert" v-if="alert"> You must select atleast one exercise!</p>
                     </form>
+                    <label id="close-popup">
+                        ❌
+                        <button @click="closePopup"></button>
+                    </label>
+                    <p>Select exercises:</p>
                     <ul class="exercise-list">
-                        <li v-for="ex in exercises" @mouseover="exercise = ex" @mouseleave="resetExercise"@click="addExerciseToWorkout(ex), $event.target.classList.toggle('selected')">{{ex.name}}</li>
+                        <li v-for="ex in exercises" @mouseover="exercise = ex, resetTimeout" @mouseleave="resetExercise"@click="addExerciseToWorkout(ex), $event.target.classList.toggle('selected')">{{ex.name}}</li>
                         <li id="AddExerciseLI"><label id="AddExerciseLabel"><button @click="showExerciseForm = true" style="border: none;"></button></label>
                     </ul>
                     <div id="exercise-adder" v-if="showExerciseForm"> 
