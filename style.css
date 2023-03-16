@@ -113,6 +113,12 @@ h3 {
     cursor: pointer;
 }
 
+#workouts li:last-child{
+    max-width: 100px;
+    background-color: transparent;
+    box-shadow: none;
+}
+
 
 #add {
     visibility: hidden;
