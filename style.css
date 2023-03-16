@@ -248,6 +248,26 @@ li.selected {
     opacity: 0.6;
 }
 
-#close-popup:hover {
+#close-popup:hover, #delete-exercise:hover {
     opacity: 1;
+}
+
+#delete-exercise {
+    padding: 0.5em;
+    position: absolute;
+    right: 20%;
+    opacity: 0.6;
+}
+
+#delete-exercise button {
+    visibility: hidden;
+}
+
+.repcount {
+    width: 3em;
+}
+
+.repControl {
+    display: flex;
+    gap: 0.25em;
 }

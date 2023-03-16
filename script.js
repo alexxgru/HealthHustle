@@ -8,9 +8,21 @@ class Exercise {
 }
 
 class Workout {
-    constructor(name, exercises) {
+
+    name = "";
+    Wexercises = [];
+    setsPerExercise = 0;
+    repsPerExercise = 0;
+
+    constructor(name, exercises, sets, reps) {
         this.name = name,
             this.Wexercises = exercises;
+        this.setsPerExercise = sets;
+        this.repsPerExercise = reps;
+    }
+
+    get CalcCalories() {
+        return this.setsPerExercise * this.repsPerExercise * this.Wexercises.length * 0.75;
     }
 }
 
@@ -29,7 +41,7 @@ Vue.createApp({
 
 
             //Other
-            selectedWorkout: new Workout("", []),
+            selectedWorkout: new Workout("", [], 0, 0),
             exercises: [
             ],
             personalExcersises: [
@@ -47,7 +59,7 @@ Vue.createApp({
         // If darkmode changes, update value in LS
         darkmode(newVal) {
             localStorage.setItem('darkmode', newVal);
-        }
+        },
     },
 
     methods: {
@@ -57,8 +69,9 @@ Vue.createApp({
             for (let i = 0; i < 4; i++) {
                 exercisesToAdd.push(this.exercises[i])
             }
-            let workout = new Workout("Workout 1", exercisesToAdd);
-            let workout2 = new Workout("Workout 2", [this.exercises[1]]);
+            let workout = new Workout("Workout 1", exercisesToAdd, 5, 10);
+
+            let workout2 = new Workout("Workout 2", [this.exercises[1]], 5, 10);
             this.workouts.push(workout);
             this.workouts.push(workout2);
             this.selectedWorkout = workout;
@@ -89,6 +102,7 @@ Vue.createApp({
             this.exercisesInWorkout = [];
             this.workoutname = "";
             this.showExerciseForm = false;
+            this.exercise = new Exercise
 
         },
         addExerciseToWorkout(ex) {
@@ -104,6 +118,11 @@ Vue.createApp({
                 this.exercisesInWorkout.push(ex);
             }
         },
+        removeExerciseFromWorkout(ex){
+            const index = this.selectedWorkout.Wexercises.findIndex(x => x.name === ex.name);
+            this.selectedWorkout.Wexercises.splice(index, 1);
+        }
+        ,
         addWorkout() {
             // Must have atleast one exercise selected to create a workout
             if (this.exercisesInWorkout.length == 0) {
@@ -113,9 +132,6 @@ Vue.createApp({
             let workout = new Workout(this.workoutname, this.exercisesInWorkout);
             this.workouts.push(workout);
             this.closePopup();
-        },
-        resetExercise() {
-            
         },
         addExercise() {
             let exercise = new Exercise(this.newExerciseName, this.newExerciseDescription, 'MusclesIDK')
@@ -129,15 +145,15 @@ Vue.createApp({
                 this.$el.ownerDocument.documentElement.classList.remove('darkmode')
             }
         },
-        getDarkModeSettings(){
+        getDarkModeSettings() {
             const savedDarkmode = localStorage.getItem('darkmode');
             if (savedDarkmode !== null) {
-            this.darkmode = (savedDarkmode === 'true');
+                this.darkmode = (savedDarkmode === 'true');
             }
         }
     },
-    mounted(){
-        setTimeout( () => {
+    mounted() {
+        setTimeout(() => {
             document.body.classList.remove('no-transition')
         }, 500)
     },
