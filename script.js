@@ -64,9 +64,9 @@ Vue.createApp({
             newExerciseName: "",
             newExerciseDescription: "",
 
-            // SVG lines for diagram
 
-            svgLine: "M 100 160 L 180 100 L 100 50 L 50 100 Z"
+            // SVG line for diagram
+            svgLine: "M 100 165 L 187 100 L 100 43 L 52 100 Z"
             ,
 
 
