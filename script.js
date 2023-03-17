@@ -35,20 +35,20 @@ class Workout {
             this.setsPerExercise * restTime) / 60;
 
         let hours = Math.floor(workoutduration / 60);
-        let minutes = Math.floor(workoutduration - hours * 60); 
-        
+        let minutes = Math.floor(workoutduration - hours * 60);
+
         if (hours === 0) {
             return minutes + " m";
         }
         else {
-            return hours + ' h ' + minutes +  ' m';
+            return hours + ' h ' + minutes + ' m';
         }
     }
 }
 
 
 //
-    // Vue app below
+// Vue app below
 //
 
 Vue.createApp({
@@ -63,6 +63,11 @@ Vue.createApp({
             showExerciseForm: false,
             newExerciseName: "",
             newExerciseDescription: "",
+
+            // SVG lines for diagram
+
+            svgLine: "M 100 160 L 180 100 L 100 50 L 50 100 Z"
+            ,
 
 
             //Other
@@ -143,7 +148,7 @@ Vue.createApp({
                 this.exercisesInWorkout.push(ex);
             }
         },
-        removeExerciseFromWorkout(ex){
+        removeExerciseFromWorkout(ex) {
             const index = this.selectedWorkout.Wexercises.findIndex(x => x.name === ex.name);
             this.selectedWorkout.Wexercises.splice(index, 1);
         }

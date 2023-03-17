@@ -3,52 +3,68 @@
     {
       "name": "Push-ups",
       "description": "Start in a plank position with your hands shoulder-width apart. Lower your body until your chest touches the ground, then push back up to the starting position.",
-      "muscleGroups": "Chest, Triceps, Shoulders, Core"
+      "muscleGroups": "Upper body, Arms"
+    },
+    {
+      "name": "Diamond push-ups",
+      "description": "Start in a plank position with your hands close together under your chest, making a diamond shape with your thumbs and index fingers. Lower your body until your chest touches your hands, then push back up to the starting position.",
+      "muscleGroups": "Upper body, Arms"
     },
     {
       "name": "Squats",
       "description": "Stand with your feet shoulder-width apart. Bend your knees and lower your body until your thighs are parallel to the ground, then stand back up.",
-      "muscleGroups": "Quadriceps, Hamstrings, Glutes, Core"
+      "muscleGroups": "Legs, Core"
     },
     {
       "name": "Lunges",
       "description": "Start in a standing position, then take a big step forward with one leg, bending your knee until your thigh is parallel to the ground. Return to the starting position and repeat with the other leg.",
-      "muscleGroups": "Quadriceps, Hamstrings, Glutes, Core"
+      "muscleGroups": "Legs, Core"
     },
     {
       "name": "Burpees",
       "description": "Start in a standing position, then squat down and place your hands on the ground. Kick your feet back into a plank position, then do a push-up. Jump your feet back up to your hands, then stand up and jump straight up.",
-      "muscleGroups": "Chest, Triceps, Shoulders, Quadriceps, Hamstrings, Glutes, Core"
+      "muscleGroups": "Upper body, Arms, Legs, Core"
     },
     {
       "name": "Mountain climbers",
       "description": "Start in a plank position, then bring one knee up to your chest. Return that foot to the starting position and repeat with the other leg. Continue alternating legs as quickly as possible.",
-      "muscleGroups": "Quadriceps, Hamstrings, Glutes, Core"
+      "muscleGroups": "Legs, Core"
     },
     {
       "name": "Plank",
       "description": "Start in a push-up position, then lower your body onto your forearms. Keep your body in a straight line from your head to your heels and hold for as long as possible.",
-      "muscleGroups": "Core, Shoulders"
+      "muscleGroups": "Core, Upper body"
     },
     {
-      "name": "Jumping jacks",
-      "description": "Start in a standing position, then jump your feet out to the sides while raising your arms above your head. Jump back to the starting position and repeat.",
-      "muscleGroups": "Cardiovascular system, Core"
+      "name": "Russian twists",
+      "description": "Sit on the ground with your knees bent and your feet flat on the ground. Lean back slightly, then twist your torso to one side and touch the ground with your hand. Twist to the other side and touch the ground with your other hand. Continue alternating sides.",
+      "muscleGroups": "Core, Arms"
     },
     {
       "name": "Glute bridges",
       "description": "Lie on your back with your knees bent and feet flat on the ground. Lift your hips up until your body forms a straight line from your knees to your shoulders, then lower back down.",
-      "muscleGroups": "Glutes, Hamstrings, Lower back"
+      "muscleGroups": "Legs, Core"
     },
     {
       "name": "Plank jacks",
       "description": "Start in a plank position, then jump your feet out to the sides while keeping your upper body still. Jump your feet back together and repeat.",
-      "muscleGroups": "Core, Shoulders"
+      "muscleGroups": "Core, Upper body"
     },
     {
       "name": "Bicycle crunches",
       "description": "Lie on your back with your hands behind your head. Lift your head, shoulders, and legs off the ground, then twist your torso and bring one elbow to the opposite knee. Repeat with the other elbow and knee, continuing to alternate.",
-      "muscleGroups": "Core, Obliques"
-    }
-  ]
+      "muscleGroups": "Core, Upper body"
+    },
+    {
+      "name": "Dips",
+      "description": "Sit on the edge of a bench or sturdy chair with your hands gripping the edge. Walk your feet out and lower your body until your elbows are bent at a 90-degree angle, then push back up to the starting position.",
+      "muscleGroups": "Arms, Upper body"
+    },
+    {
+      "name": "Bodyweight rows",
+      "description": "Find a sturdy horizontal surface (such as a table or railing) at waist height. Lie underneath it and grasp the edge with both hands. Keeping your body straight, pull your chest up to the edge and then lower back down to the starting position",
+      "muscleGroups": "Arms, Upper body"
+    } ]
 }
+
+
