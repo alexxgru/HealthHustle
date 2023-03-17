@@ -21,8 +21,6 @@ class Workout {
         this.repsPerExercise = reps;
     }
 
-
-
     // ballpark estimates of calorie burn and duration of workout
 
     get calcCalories() {
@@ -47,6 +45,11 @@ class Workout {
         }
     }
 }
+
+
+//
+    // Vue app below
+//
 
 Vue.createApp({
     data() {

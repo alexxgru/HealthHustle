@@ -29,6 +29,14 @@
         <section id="main">
             <section id="workout-info">
                 <h3>{{selectedWorkout.name}}</h3>
+                <svg width="200" height="200" xmlns="http://www.w3.org/2000/svg">
+                    <path d="M 100 100 H 5 M 100 100 H 195 M 100 100 V 5 M 100 100 V 195" stroke="black" fill="transparent"/>
+                    <path d="M 100 120 L 120 100 L 100 80 L 80 100 L 100 120 " stroke="hsla(0, 0%, 50%, 0.404)" fill="transparent"/>
+                    <path d="M 100 140 L 140 100 L 100 60 L 60 100 L 100 140 " stroke="hsla(0, 0%, 50%, 0.404)" fill="transparent"/>
+                    <path d="M 100 160 L 160 100 L 100 40 L 40 100 L 100 160 " stroke="hsla(0, 0%, 50%, 0.404)" fill="transparent"/>
+                    <path d="M 100 180 L 180 100 L 100 20 L 20 100 L 100 180 " stroke="hsla(0, 0%, 50%, 0.404)" fill="transparent"/>
+                    <path d="M 100 180 L 180 100 L 100 20 L 20 100 L 100 180 " stroke="hsla(0, 0%, 50%, 0.404)" fill="transparent"/>
+                  </svg>
                 <div class="repControl">
                     <p>Sets: </p>
                     <input class="repcount" type="number" :value="selectedWorkout.setsPerExercise" @input="selectedWorkout.setsPerExercise = $event.target.value">
