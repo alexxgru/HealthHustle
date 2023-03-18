@@ -139,12 +139,13 @@ h4 {
 }
 
 #diagram {
+    margin-left: 10rem;
     grid-area: c;
     display: flex;
     flex-direction: column;
     justify-content: start;
     align-items: center;
-    border-left: 1px solid var(--accent);
+    
 }
 
 #stats {
@@ -158,6 +159,7 @@ svg {
 }
 
 #exercise-control {
+    border-right: 1px solid var(--accent);
     grid-area: b;
 }
 
