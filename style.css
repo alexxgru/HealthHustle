@@ -4,6 +4,7 @@
     --accent: #357960;
     --background: #f6f6f6;
     --background-2: white;
+    --path-color: black;
     --hover-li: #e6e6e6;
     --text-color: black;
     --situp-logo: url(./imgs/situps_dark.png);
@@ -15,7 +16,8 @@
     --accent: #357960;
     --background: #1a1a1a;
     --background-2: #242424;
-    --hover-li: rgb(49, 49, 49);
+    --path-color: rgb(92, 92, 92);
+    --hover-li: rgb(95, 95, 95);
     --text-color: white;
     --situp-logo: url(./imgs/situps_light.png);
     --time-logo: url(./imgs/time_light.png);
@@ -98,6 +100,13 @@ h3 {
     fill: var(--text-color);
 }
 
+.path , .pathMain{
+    stroke: var(--path-color);
+}
+
+.path {
+    opacity: 0.2;
+}
 
 
 /*

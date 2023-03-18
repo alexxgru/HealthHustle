@@ -44,6 +44,42 @@ class Workout {
             return hours + ' h ' + minutes + ' m';
         }
     }
+
+    get diagramData() {
+        let upper = 0;
+        let core = 0;
+        let arms = 0;
+        let legs = 0;
+
+        for (let exercise of this.Wexercises) {
+            for (let muscleGroup of exercise.muscleGroups) {
+                muscleGroup === "Arms" ? arms++ : muscleGroup === "Core" ? core++ : muscleGroup === "Legs" ? legs++ : upper++;
+            }
+        }
+
+        let sum = upper + core + arms + legs;
+        
+        if ( sum === 0) {return}
+        
+        
+        let values = [upper, core, arms, legs]
+        let times = 0.7;
+        
+        if (values.filter(x => x > 0).length >= 2 ){
+            times = 1.4
+        }
+
+        let uppervalue = 80 - ((upper / sum * 100) * times);
+
+        let legsvalue = ((legs / sum * 100) * times) + 120;
+
+        let armsvalue = ((arms / sum * 100) * times) + 120;
+
+        let corevalue = 80 - ((core / sum * 100) * times);
+
+
+        return "M 100 " + legsvalue + " L " + armsvalue + " 100 L 100 " + uppervalue + " L " + corevalue + " 100 Z";
+    }
 }
 
 
@@ -66,12 +102,12 @@ Vue.createApp({
 
 
             // SVG line for diagram
-            svgLine: "M 100 165 L 187 100 L 100 43 L 52 100 Z"
+            svgLine: "M 100 160 L 120 100 L 100 90 L 52 100 Z"
             ,
 
 
             //Other
-            selectedWorkout: new Workout("", [], 0, 0),
+            selectedWorkout: new Workout("", [new Exercise("", "", "")], 0, 0),
             exercises: [
             ],
             personalExcersises: [
