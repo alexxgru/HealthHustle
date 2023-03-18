@@ -125,6 +125,13 @@
                             <input type="text" v-model="newExerciseName" placeholder="Name your exercise..." autofocus
                                 required>
                             <input type="text" v-model="newExerciseDescription" placeholder="Write a description...">
+                            <select id="newExerciseMuscle" v-model="newExerciseMuscleGroup">
+                                <option value="Upper Body" selected="selected">Upper Body</option>
+                                <option value="Legs">Legs</option>
+                                <option value="Arms">Arms</option>
+                                <option value="Core">Core</option>
+                                
+                            </select>
                             <button type="submit">Add Exercise</button>
                             <label><button @click="showExerciseForm=false">❌</button></label>
                         </form>

@@ -100,6 +100,7 @@ Vue.createApp({
             showExerciseForm: false,
             newExerciseName: "",
             newExerciseDescription: "",
+            newExerciseMuscleGroup: "Upper Body",
 
 
             // SVG line for diagram
@@ -177,6 +178,7 @@ Vue.createApp({
 
             this.showExerciseForm = false;
 
+
             // Add/remove excercise from list
             const index = this.exercisesInWorkout.findIndex(x => x.name === ex.name);
             if (index !== -1) {
@@ -201,8 +203,20 @@ Vue.createApp({
             this.closePopup();
         },
         addExercise() {
-            let exercise = new Exercise(this.newExerciseName, this.newExerciseDescription, 'MusclesIDK')
+            let exercise = new Exercise(this.newExerciseName, this.newExerciseDescription, this.newExerciseMuscleGroup)
+
+            let existingExerciseChecker = this.exercises.findIndex(e => e.name === exercise.name);
+            if (existingExerciseChecker !== -1) {
+                // An exercise with the same name already exists
+                console.log(`An exercise with the name '${exercise.name}' already exists.`);
+                return;
+              }
+
             this.exercises.push(exercise);
+
+            this.newExerciseName = '';
+            this.newExerciseDescription = '';
+            
         },
         toggleDarkmode() {
             if (this.darkmode) {
