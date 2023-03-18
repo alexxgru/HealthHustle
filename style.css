@@ -318,7 +318,9 @@ svg {
 
 
 #exercise-info {
-    width: 100%;
+    margin: 1rem 4rem;
+    display: flex;
+    flex-direction: column;
 }
 
 li.selected {
@@ -412,6 +414,7 @@ li.selected {
     opacity: 0.6;
 }
 
+
 #close-popup:hover, #delete-exercise:hover {
     opacity: 1;
 }
@@ -428,4 +431,8 @@ li.selected {
 .repControl {
     display: flex;
     gap: 0.25em;
+}
+
+#workout-builder-header{
+    margin: 1rem 4rem;
 }

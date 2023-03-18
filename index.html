@@ -102,7 +102,7 @@
             <!-- HTML for creating workout popup -->
             <template v-if="popup">
                 <div id="popup" ref="popup" tabindex="0">
-                    <h3>Workout Builder</h3>
+                    <h3 id="workout-builder-header">Workout Builder</h3>
                     <form id="workout-form" @submit.prevent="addWorkout">
                         <input type="text" v-model="workoutname" placeholder="Name your workout" autofocus required>
                         <button type="submit">Add Workout</button>
