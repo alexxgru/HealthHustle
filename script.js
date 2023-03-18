@@ -205,6 +205,9 @@ Vue.createApp({
             this.closePopup();
         },
         addExercise() {
+
+            this.alertName = false;
+            
             let exercise = new Exercise(this.newExerciseName, this.newExerciseDescription, this.newExerciseMuscleGroup)
 
             let existingExerciseChecker = this.exercises.findIndex(e => e.name === exercise.name);
