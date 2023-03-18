@@ -134,6 +134,7 @@
                             </select>
                             <button type="submit">Add Exercise</button>
                             <label><button @click="showExerciseForm=false">❌</button></label>
+                            <p id="alertName" v-if="alertName"> You cannot create an exercise with an identical name!</p>
                         </form>
                     </div>
                     <div id="exercise-info" v-if="exercise.name != '' && !showExerciseForm">

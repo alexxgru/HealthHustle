@@ -96,11 +96,13 @@ Vue.createApp({
             exercisesInWorkout: [],
             workoutname: "",
             alert: false,
+            alertName: false,
             exercise: new Exercise("", "", ""),
             showExerciseForm: false,
             newExerciseName: "",
             newExerciseDescription: "",
             newExerciseMuscleGroup: "Upper Body",
+            
 
 
             // SVG line for diagram
@@ -208,7 +210,7 @@ Vue.createApp({
             let existingExerciseChecker = this.exercises.findIndex(e => e.name === exercise.name);
             if (existingExerciseChecker !== -1) {
                 // An exercise with the same name already exists
-                console.log(`An exercise with the name '${exercise.name}' already exists.`);
+                this.alertName = true;
                 return;
               }
 
