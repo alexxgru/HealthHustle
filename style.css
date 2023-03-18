@@ -124,11 +124,15 @@ li h3 {
     grid-template: "a a" "b c" / 1fr 1fr;
 }
 
-#workout-info h3 {
+#workout-info h2 {
     grid-area: a;
     text-align: center;
     margin: 3em 0;
     font-size: 24px;
+}
+
+#workout-info h3 {
+    text-align: start;
 }
 
 h4 {
@@ -138,8 +142,9 @@ h4 {
     grid-area: c;
     display: flex;
     flex-direction: column;
-    justify-content: center;
+    justify-content: start;
     align-items: center;
+    border-left: 1px solid var(--accent);
 }
 
 #stats {
@@ -160,7 +165,31 @@ svg {
     margin: 0.5em 0;
 }
 
+#toggling {
+}
 
+#descToggle {
+    background-color: var(--background);
+    color: #5ecba3;
+    border: none;
+    font-style: italic;
+    opacity: 0.8;
+}
+
+#descToggle:hover {
+    opacity: 1;
+}
+
+#delete-exercise {
+    visibility: hidden;
+    font-size: 14px;
+    padding: 0.5em;
+    opacity: 0.6;
+}
+
+#exercise-control li:hover #delete-exercise {
+    visibility: visible;
+}
 
 
 /*
@@ -387,12 +416,6 @@ li.selected {
     opacity: 1;
 }
 
-#delete-exercise {
-    padding: 0.5em;
-    position: absolute;
-    right: 20%;
-    opacity: 0.6;
-}
 
 #delete-exercise button {
     visibility: hidden;

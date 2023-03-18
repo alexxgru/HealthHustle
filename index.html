@@ -29,7 +29,7 @@
         </header>
         <section id="main">
             <section id="workout-info">
-                <h3>{{selectedWorkout.name}}</h3>
+                <h2>{{selectedWorkout.name}}</h2>
                 <!-- Diagram -->
                 <div id=diagram>
                     <svg width="250" height="250" xmlns="http://www.w3.org/2000/svg">
@@ -72,13 +72,13 @@
                         <li v-for="exercise in selectedWorkout.Wexercises">
                           <strong>{{exercise.name}}</strong>
                           <div id="toggling">
+                              <button id="descToggle" @click="exercise.showDescription = !exercise.showDescription">
+                                {{ exercise.showDescription ? 'Hide' : 'Show' }} description
+                              </button>
                               <label id="delete-exercise">
                                 ❌
                                 <button @click="removeExerciseFromWorkout(exercise)"></button>
                               </label>
-                              <button @click="exercise.showDescription = !exercise.showDescription">
-                                {{ exercise.showDescription ? 'Hide' : 'Show' }} Description
-                              </button>
                           </div>
                           <p v-if="exercise.showDescription">{{exercise.description}}</p>
                         </li>
