@@ -49,13 +49,12 @@ header {
     height: 5em;
     align-items: center;
     justify-content: center;
-    gap: 40%;
     color: white;
     background-color: var(--accent);
     border-bottom: 1px solid var(--accent);
 }
 
-h3 {
+li h3 {
     margin: 1em 0em 1em 3em
 }
 
@@ -68,6 +67,8 @@ h3 {
 }
 
 #darkmode {
+    position: absolute;
+    right: 10%;
     border: 3px solid white;
     width: 3.5em;
     height: 1.5em;
@@ -88,7 +89,7 @@ h3 {
 
 /* ---------------------------
 
-    SVG css
+    SVG css below
 
 ----------------------------
 */
@@ -110,6 +111,61 @@ h3 {
 
 
 /*
+---------------------------
+
+ Workout info CSS beloc
+
+---------------------------
+*/
+
+
+#workout-info {
+    display: grid;
+    grid-template: "a a" "b c" / 1fr 1fr;
+}
+
+#workout-info h3 {
+    grid-area: a;
+    text-align: center;
+    margin: 3em 0;
+    font-size: 24px;
+}
+
+h4 {
+}
+
+#diagram {
+    grid-area: c;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+#stats {
+    width: 120px;
+    line-height: 2em;
+}
+
+svg {
+    margin-right: 3em;
+    text-align: end;
+}
+
+#exercise-control {
+    grid-area: b;
+}
+
+#exercise-control li {
+    margin: 0.5em 0;
+}
+
+
+
+
+/*
+
+
 
 
 
@@ -142,7 +198,7 @@ h3 {
     align-items: self-start;
 }
 
-#workouts li span {
+#workouts li span, #workout-info span {
     display: inline-block;
     width: 20px;
     height: 20px;

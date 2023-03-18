@@ -3,6 +3,7 @@ class Exercise {
         this.name = name;
         this.description = description;
         this.muscleGroups = muscleGroups;
+        this.showDescription = false;
 
     }
 }

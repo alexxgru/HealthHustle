@@ -30,47 +30,60 @@
         <section id="main">
             <section id="workout-info">
                 <h3>{{selectedWorkout.name}}</h3>
-                <p>{{selectedWorkout.diagramData}}</p>
                 <!-- Diagram -->
-                <svg width="250" height="250" xmlns="http://www.w3.org/2000/svg">
-                    <rect x="0" y="0" width="250" height="250" fill="transparent" />
-                    <g transform="translate(25,25)">
-                        <path class="pathMain" d="M 100 100 H 5 M 100 100 H 195 M 100 100 V 5 M 100 100 V 195" stroke="black"
-                            fill="transparent" />
-                        <path class="path" d="M 100 120 L 120 100 L 100 80 L 80 100 L 100 120 " stroke="grey" fill="transparent" />
-                        <path class="path" d="M 100 140 L 140 100 L 100 60 L 60 100 L 100 140 " stroke="grey" fill="transparent" />
-                        <path class="path" d="M 100 160 L 160 100 L 100 40 L 40 100 L 100 160 " stroke="grey" fill="transparent" />
-                        <path class="path" d="M 100 180 L 180 100 L 100 20 L 20 100 L 100 180 " stroke="grey" fill="transparent" />
-                        <path class="pathMain" d="M 100 195 L 195 100 L 100 5 L 5 100 L 100 195 " stroke="grey" fill="transparent" />
-                        <text class="text" x="100" y="215" text-anchor="middle" font-size="12">Legs</text>
-                        <text class="text" x="100" y="-5" text-anchor="middle" font-size="12">Upper Body</text>
-                        <text class="text" x="-13" y="103" text-anchor="middle" font-size="12">Core</text>
-                        <text class="text" x="212" y="103" text-anchor="middle">Arms</text>
-
-                        <!-- Diagram lines below -->
-                        <path :d="selectedWorkout.diagramData" stroke="red" fill="rgba(255, 0, 0, 0.3)" style="stroke-width: 2px;"/>
-                    </g>
-                </svg>
-                <div class="repControl">
-                    <p>Sets: </p>
-                    <input class="repcount" type="number" :value="selectedWorkout.setsPerExercise"
-                        @input="selectedWorkout.setsPerExercise = $event.target.value">
-                    <p>Reps: </p>
-                    <input class="repcount" type="number" :value="selectedWorkout.repsPerExercise"
-                        @input="selectedWorkout.repsPerExercise = $event.target.value">
+                <div id=diagram>
+                    <svg width="250" height="250" xmlns="http://www.w3.org/2000/svg">
+                        <rect x="0" y="0" width="250" height="250" fill="transparent" />
+                        <g transform="translate(25,25)">
+                            <path class="pathMain" d="M 100 100 H 5 M 100 100 H 195 M 100 100 V 5 M 100 100 V 195" stroke="black"
+                                fill="transparent" />
+                            <path class="path" d="M 100 120 L 120 100 L 100 80 L 80 100 L 100 120 " stroke="grey" fill="transparent" />
+                            <path class="path" d="M 100 140 L 140 100 L 100 60 L 60 100 L 100 140 " stroke="grey" fill="transparent" />
+                            <path class="path" d="M 100 160 L 160 100 L 100 40 L 40 100 L 100 160 " stroke="grey" fill="transparent" />
+                            <path class="path" d="M 100 180 L 180 100 L 100 20 L 20 100 L 100 180 " stroke="grey" fill="transparent" />
+                            <path class="pathMain" d="M 100 195 L 195 100 L 100 5 L 5 100 L 100 195 " stroke="grey" fill="transparent" />
+                            <text class="text" x="100" y="215" text-anchor="middle" font-size="12">Legs</text>
+                            <text class="text" x="100" y="-5" text-anchor="middle" font-size="12">Upper Body</text>
+                            <text class="text" x="-13" y="103" text-anchor="middle" font-size="12">Core</text>
+                            <text class="text" x="212" y="103" text-anchor="middle">Arms</text>
+    
+                            <!-- Diagram lines below -->
+                            <path :d="selectedWorkout.diagramData" stroke="red" fill="rgba(255, 0, 0, 0.3)" style="stroke-width: 2px;"/>
+                        </g>
+                    </svg>
+                    <div id="stats">
+                        <h4>Workout Info:</h4>
+                        <p><span id="workout-icon"></span>{{selectedWorkout.Wexercises.length}} {{selectedWorkout.Wexercises.length == 1 ? "exercise" :
+                            "exercises"}}</p>
+                        <p><span id="time-icon"></span>~{{selectedWorkout.estimateTime}}</p>
+                        <p><span id="cal-icon"></span>~{{selectedWorkout.calcCalories}} calories</p>
+                    </div>
                 </div>
-                <h3>{{selectedWorkout.calcCalories}}</h3>
-                <h3>{{selectedWorkout.estimateTime}}</h3>
-                <ul>
-                    <li v-for="exercise in selectedWorkout.Wexercises"><strong>{{exercise.name}}</strong>
-                        <label id="delete-exercise">
-                            ❌
-                            <button @click="removeExerciseFromWorkout(exercise)"></button>
-                        </label>
-                        <p>{{exercise.description}}</p>
-                    </li>
-
-                </ul>
+                <div id="exercise-control">
+                    <div class="repControl">
+                        <p>Sets: </p>
+                        <input class="repcount" type="number" :value="selectedWorkout.setsPerExercise"
+                            @input="selectedWorkout.setsPerExercise = $event.target.value">
+                        <p>Reps: </p>
+                        <input class="repcount" type="number" :value="selectedWorkout.repsPerExercise"
+                            @input="selectedWorkout.repsPerExercise = $event.target.value">
+                    </div>
+                    <ul>
+                        <li v-for="exercise in selectedWorkout.Wexercises">
+                          <strong>{{exercise.name}}</strong>
+                          <div id="toggling">
+                              <label id="delete-exercise">
+                                ❌
+                                <button @click="removeExerciseFromWorkout(exercise)"></button>
+                              </label>
+                              <button @click="exercise.showDescription = !exercise.showDescription">
+                                {{ exercise.showDescription ? 'Hide' : 'Show' }} Description
+                              </button>
+                          </div>
+                          <p v-if="exercise.showDescription">{{exercise.description}}</p>
+                        </li>
+                      </ul>
+                </div>
             </section>
             <h2>Workouts</h2>
             <ul id="workouts">
@@ -78,8 +91,8 @@
                     <h2>{{w.name}}</h2>
                     <p><span id="workout-icon"></span>{{w.Wexercises.length}} {{w.Wexercises.length == 1 ? "exercise" :
                         "exercises"}}</p>
-                    <p><span id="time-icon"></span>{{w.estimateTime}}</p>
-                    <p><span id="cal-icon"></span>{{w.calcCalories}} calories</p>
+                    <p><span id="time-icon"></span>~{{w.estimateTime}}</p>
+                    <p><span id="cal-icon"></span>~{{w.calcCalories}} calories</p>
                 </li>
                 <li>
                     <label id="addLabel" @click="popup = true" for="add"><button id="add"></button></label>
