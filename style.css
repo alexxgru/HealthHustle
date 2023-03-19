@@ -212,6 +212,24 @@ svg {
         word-wrap: break-word;
         width: 420px;
     }
+    #workout-sdiv{
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+    }
+    
+
+}
+
+@media(max-width: 420px){
+    #workouts{
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+    }
+    
+   
 
 }
 
@@ -294,7 +312,7 @@ svg {
 
 #addLabel {
     display: flex;
-    padding: 2em;
+    padding: 3em;
     width: 100%;
     height: 100%;
     background-image: url("imgs/add.png");

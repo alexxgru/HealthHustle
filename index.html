@@ -85,6 +85,7 @@
                       </ul>
                 </div>
             </section>
+            <div id="workouts-div">
             <h2>Workouts</h2>
             <ul id="workouts">
                 <li v-for="w in workouts" @click="selectedWorkout = w" class="workoutdiv">
@@ -98,6 +99,7 @@
                     <label id="addLabel" @click="popup = true" for="add"><button id="add"></button></label>
                 </li>
             </ul>
+            </div>
 
             <!-- HTML for creating workout popup -->
             <template v-if="popup">
