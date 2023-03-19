@@ -193,6 +193,28 @@ svg {
     visibility: visible;
 }
 
+@media(max-width: 800px) {
+    #workout-info {
+        grid-template: "a" "c" "b";
+        justify-content: center;
+    }
+    
+    #diagram {
+        flex-direction: row;
+        margin: 0;
+        padding-bottom: 3em;
+        border-bottom: 1px solid var(--accent);
+    }
+    
+    #exercise-control {
+        border-right: none;
+        padding-top: 3em;
+        word-wrap: break-word;
+        width: 420px;
+    }
+
+}
+
 
 /*
 
