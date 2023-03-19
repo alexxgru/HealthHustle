@@ -212,7 +212,7 @@ svg {
         word-wrap: break-word;
         width: 420px;
     }
-    #workout-sdiv{
+    #workouts-div{
         display: flex;
         flex-direction: column;
         align-items: center;
@@ -222,7 +222,7 @@ svg {
 
 }
 
-@media(max-width: 420px){
+@media(max-width: 450px){
     #workouts{
         display: flex;
         flex-direction: column;
