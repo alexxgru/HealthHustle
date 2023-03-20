@@ -59,14 +59,14 @@ class Workout {
         }
 
         let sum = upper + core + arms + legs;
-        
-        if ( sum === 0) {return}
-        
-        
+
+        if (sum === 0) { return }
+
+
         let values = [upper, core, arms, legs]
         let times = 0.7;
-        
-        if (values.filter(x => x > 0).length >= 2 ){
+
+        if (values.filter(x => x > 0).length >= 2) {
             times = 1.4
         }
 
@@ -102,7 +102,7 @@ Vue.createApp({
             newExerciseName: "",
             newExerciseDescription: "",
             newExerciseMuscleGroup: [],
-            
+
 
 
             // SVG line for diagram
@@ -208,7 +208,7 @@ Vue.createApp({
         addExercise() {
 
             this.alertName = false;
-            
+
             let exercise = new Exercise(this.newExerciseName, this.newExerciseDescription, this.newExerciseMuscleGroup)
 
             let existingExerciseChecker = this.exercises.findIndex(e => e.name === exercise.name);
@@ -216,13 +216,13 @@ Vue.createApp({
                 // An exercise with the same name already exists
                 this.alertName = true;
                 return;
-              }
+            }
 
             this.exercises.push(exercise);
 
             this.newExerciseName = '';
             this.newExerciseDescription = '';
-            this.newExerciseMuscleGroup= []; 
+            this.newExerciseMuscleGroup = [];
         },
         toggleDarkmode() {
             if (this.darkmode) {
@@ -243,13 +243,30 @@ Vue.createApp({
                 top: document.body.scrollHeight,
                 left: 0,
                 behavior: "smooth",
-              });
+            });
         }
     },
     mounted() {
+
+        //No darkmode transition on page load
         setTimeout(() => {
             document.body.classList.remove('no-transition')
         }, 500)
+
+
+        //Sets interval for rotation animation
+        const addLabel = document.querySelector('#addLabel');
+        let count = 0;
+
+        // setInterval(() => {
+        //     if (addLabel.style.animationPlayState === 'paused' && count === 3) {
+        //         addLabel.style.animationPlayState = 'running';
+        //         count = 0;
+        //     } else {
+        //         addLabel.style.animationPlayState = 'paused';
+        //         count++;
+        //     }
+        // }, 2000);
     },
     async beforeMount() {
         this.getDarkModeSettings();

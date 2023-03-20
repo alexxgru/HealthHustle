@@ -99,8 +99,8 @@
                     <p><span id="time-icon"></span>~{{w.estimateTime}}</p>
                     <p><span id="cal-icon"></span>~{{w.calcCalories}} calories</p>
                 </li>
-                <li>
-                    <label id="addLabel" @click="popup = true, scrollPopup()"  for="add"><button id="add"></button></label>
+                <li id="addContainer"@click="popup = true, scrollPopup()">
+                    <label id="addLabel" for="add"></label>
                 </li>
             </ul>
             </div>
