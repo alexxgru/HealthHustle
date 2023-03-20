@@ -17,7 +17,7 @@
     --background: #1a1a1a;
     --background-2: #242424;
     --path-color: rgb(92, 92, 92);
-    --hover-li: rgb(95, 95, 95);
+    --hover-li: rgb(46, 46, 46);
     --text-color: white;
     --situp-logo: url(./imgs/situps_light.png);
     --time-logo: url(./imgs/time_light.png);
@@ -122,13 +122,27 @@ li h3 {
 #workout-info {
     display: grid;
     grid-template: "a a" "b c" / 1fr 1fr;
+    margin-top: 2em;
+    background-color: var(--background-2);
+    padding-bottom: 2em;
+    border-radius: 0.5em;
+    box-shadow: 0 0 10px 1px grey;
 }
 
 #workout-info h2 {
-    grid-area: a;
     text-align: center;
-    margin: 3em 0;
+    margin: 2em 0 0.5em 0;
     font-size: 24px;
+}
+
+#title p {
+    font-style: italic;
+}
+
+#title {
+    grid-area: a;
+    margin-bottom: 3em;
+    text-align: center;
 }
 
 #workout-info h3 {
@@ -139,7 +153,7 @@ h4 {
 }
 
 #diagram {
-    margin-left: 10rem;
+    margin-left: 2rem;
     grid-area: c;
     display: flex;
     flex-direction: column;
@@ -161,6 +175,8 @@ svg {
 #exercise-control {
     border-right: 1px solid var(--accent);
     grid-area: b;
+    margin-left: 2em;
+
 }
 
 #exercise-control li {
@@ -242,8 +258,12 @@ svg {
 
 */
 #main {
-    width: clamp(400px, 100%, 900px);
+    width: clamp(400px, 90%, 900px);
     margin: auto;
+}
+
+#workouts-div {
+    margin-top: 3em;
 }
 
 #workouts {
@@ -259,14 +279,15 @@ svg {
     width: clamp(200px, 25%, 300px);
     min-height: 130px;
     border-radius: 2em;
-    box-shadow: 0 0 5px 3px grey;
+    box-shadow: 0 0 10px 1px grey;
 }
 
 #workouts p {
     height: 20px;
     margin: 0.4em;
     display: flex;
-    align-items: self-start;
+    font-weight: 600;
+    opacity: 0.8;
 }
 
 #workouts li span, #workout-info span {
@@ -294,7 +315,7 @@ svg {
     padding: 2em;
 }
 
-#workouts > :hover, #AddExerciseLabel:hover {
+#workouts > :hover, #AddExerciseLabel:hover, .exercise-list li:hover {
     background-color: var(--hover-li);
     cursor: pointer;
 }
@@ -332,10 +353,11 @@ svg {
     border-radius: 0.5em;
     width: clamp(350px, 90%, 900px);    
     margin: auto;
-    background-color: var(--accent);
+    background-color: rgba(53, 121, 96, 0.815);
     z-index: 1;
     margin-top: 2em;
     padding: 1em;
+    min-height: 566px;
 }
 
 .exercise-list {
@@ -354,6 +376,7 @@ svg {
     cursor: pointer;
     border: 1px solid transparent;
     border-radius: 1em;
+    font-weight: 600;
     transition: all 500ms ease;
 }
 

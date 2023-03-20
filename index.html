@@ -29,7 +29,11 @@
         </header>
         <section id="main">
             <section id="workout-info">
-                <h2>{{selectedWorkout.name}}</h2>
+                <div id="title">
+                    <h2>{{selectedWorkout.name}}</h2>
+                    <p>This is your workout!</p>
+                    <p>On the left you can see your exercises and on the right is a diagram of the targeted muscle groups.</p>
+                </div>
                 <!-- Diagram -->
                 <div id=diagram>
                     <svg width="250" height="250" xmlns="http://www.w3.org/2000/svg">
@@ -86,7 +90,7 @@
                 </div>
             </section>
             <div id="workouts-div">
-            <h2>Workouts</h2>
+            <h2>My Workouts</h2>
             <ul id="workouts">
                 <li v-for="w in workouts" @click="selectedWorkout = w" class="workoutdiv">
                     <h2>{{w.name}}</h2>
@@ -116,7 +120,7 @@
                     </label>
                     <p>Select exercises:</p>
                     <ul class="exercise-list">
-                        <li v-for="ex in exercises" @mouseover="exercise = ex, resetTimeout" @mouseleave="resetExercise"
+                        <li v-for="ex in exercises" @mouseover="exercise = ex, resetTimeout"
                             @click="addExerciseToWorkout(ex), $event.target.classList.toggle('selected')">{{ex.name}}
                         </li>
                         <li id="AddExerciseLI"><label id="AddExerciseLabel"><button @click="showExerciseForm = true"
