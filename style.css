@@ -371,6 +371,7 @@ svg {
 }
 
 .exercise-list li {
+    position: relative;
     padding: 1em;
     background-color: var(--background);
     cursor: pointer;
@@ -378,6 +379,10 @@ svg {
     border-radius: 1em;
     font-weight: 600;
     transition: all 500ms ease;
+}
+
+.exercise-list li img {
+    display: none;
 }
 
 
@@ -389,8 +394,18 @@ svg {
 }
 
 li.selected {
-    color: red;
-    border: 1px solid black;
+    color: #5ecba3;
+    border: 1px solid #5ecba3;
+}
+
+li.selected img {
+    width: 20px;
+    display: block;
+    position: absolute;
+    top: 0;
+    right: 0;
+    margin-top: -0.4em;
+    margin-right: -0.4em;
 }
 
 #AddExerciseLI{

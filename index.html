@@ -100,7 +100,7 @@
                     <p><span id="cal-icon"></span>~{{w.calcCalories}} calories</p>
                 </li>
                 <li>
-                    <label id="addLabel" @click="popup = true" for="add"><button id="add"></button></label>
+                    <label id="addLabel" @click="popup = true, scrollPopup()"  for="add"><button id="add"></button></label>
                 </li>
             </ul>
             </div>
@@ -122,6 +122,7 @@
                     <ul class="exercise-list">
                         <li v-for="ex in exercises" @mouseover="exercise = ex, resetTimeout"
                             @click="addExerciseToWorkout(ex), $event.target.classList.toggle('selected')">{{ex.name}}
+                            <img src="./imgs/check.png" alt="123">
                         </li>
                         <li id="AddExerciseLI"><label id="AddExerciseLabel"><button @click="showExerciseForm = true"
                                     style="border: none;"></button></label>
@@ -146,7 +147,7 @@
                     <div id="exercise-info" v-if="exercise.name != '' && !showExerciseForm">
                         <h3> {{exercise.name}} </h3>
                         <p> {{exercise.description}}</p>
-                        <p> <strong>Primary muscles:</strong> {{exercise.muscleGroups}}</p>
+                        <p> <strong>Primary muscles:</strong> <span v-for="muscle in exercise.muscleGroups" >{{ muscle + " " }} </span> </p>
                     </div>
 
                 </div>

@@ -236,6 +236,13 @@ Vue.createApp({
             if (savedDarkmode !== null) {
                 this.darkmode = (savedDarkmode === 'true');
             }
+        },
+        scrollPopup() {
+            window.scrollTo({
+                top: document.body.scrollHeight,
+                left: 0,
+                behavior: "smooth",
+              });
         }
     },
     mounted() {
