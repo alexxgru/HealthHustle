@@ -50,7 +50,7 @@ header {
     align-items: center;
     justify-content: center;
     color: white;
-    background-color: var(--accent);
+    background: linear-gradient(110deg, #357960 60%, #5ecba3 60%);
     border-bottom: 1px solid var(--accent);
 }
 
@@ -187,7 +187,7 @@ svg {
 }
 
 #descToggle {
-    background-color: var(--background);
+    background-color: var(--background-2);
     color: #5ecba3;
     border: none;
     font-style: italic;
@@ -381,11 +381,13 @@ svg {
     transition: all 500ms ease;
 }
 
+.exercise-list li:hover {
+    transform: translateY(-0.2em);
+}
+
 .exercise-list li img {
     display: none;
 }
-
-
 
 #exercise-info {
     margin: 1rem 4rem;
@@ -452,6 +454,7 @@ li.selected img {
 #workout-form input, #exercise-adder input {
     padding: 0.5em;
     border-radius: 0.6em;
+    border: 1px solid var(--background);
     background-color: var(--background);
     color: var(--text-color);
 }
@@ -462,10 +465,20 @@ li.selected img {
 }
 
 #workout-form button, #exercise-adder button {
+    background-color: rgb(94, 203, 163);
+    color: var(--text-color);
     margin-left: 1em;
-    padding: 0.5em;
+    padding: 0.6em;
+    border: none;
+    border-radius: 0.4em;
+    transition: all 300ms ease;
 }
 
+#workout-form button:hover , #exercise-adder button:hover {
+    background-color: rgba(94, 203, 163, 0.8);
+    cursor: pointer;
+    transform: translateY(-0.2em);
+}
 
 /*
 
