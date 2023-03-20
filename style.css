@@ -358,21 +358,21 @@ svg {
 @keyframes rotate-animation {
     0% {
         transform: rotateZ(0deg);
-        opacity: 0.7;
     }
     
     85% {
+        opacity: 0.7;
         transform: rotateZ(0deg);
     }
 
     92.5% {
         transform: rotateZ(360deg);
-        opacity: 1;
+        opacity: 1.0;
     }
     
     100% {
-        transform: rotateZ(0deg);
         opacity: 0.7;
+        transform: rotateZ(0deg);
     }
 }
 

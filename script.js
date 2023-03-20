@@ -253,20 +253,6 @@ Vue.createApp({
             document.body.classList.remove('no-transition')
         }, 500)
 
-
-        //Sets interval for rotation animation
-        const addLabel = document.querySelector('#addLabel');
-        let count = 0;
-
-        // setInterval(() => {
-        //     if (addLabel.style.animationPlayState === 'paused' && count === 3) {
-        //         addLabel.style.animationPlayState = 'running';
-        //         count = 0;
-        //     } else {
-        //         addLabel.style.animationPlayState = 'paused';
-        //         count++;
-        //     }
-        // }, 2000);
     },
     async beforeMount() {
         this.getDarkModeSettings();
