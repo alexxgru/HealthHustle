@@ -101,7 +101,7 @@ Vue.createApp({
             showExerciseForm: false,
             newExerciseName: "",
             newExerciseDescription: "",
-            newExerciseMuscleGroup: "Upper Body",
+            newExerciseMuscleGroup: [],
             
 
 
@@ -172,7 +172,8 @@ Vue.createApp({
             this.exercisesInWorkout = [];
             this.workoutname = "";
             this.showExerciseForm = false;
-            this.exercise = new Exercise
+            this.exercise = new Exercise;
+            this.newExerciseMuscleGroup = [];
 
         },
         addExerciseToWorkout(ex) {
@@ -221,7 +222,7 @@ Vue.createApp({
 
             this.newExerciseName = '';
             this.newExerciseDescription = '';
-            
+            this.newExerciseMuscleGroup= []; 
         },
         toggleDarkmode() {
             if (this.darkmode) {

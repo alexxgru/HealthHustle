@@ -381,11 +381,11 @@ svg {
     transition: all 500ms ease;
 }
 
-.exercise-list li:hover {
+.exercise-list li:hover, #checkboxes label:hover {
     transform: translateY(-0.2em);
 }
 
-.exercise-list li img {
+.exercise-list li img, #checkboxes img {
     display: none;
 }
 
@@ -400,7 +400,7 @@ li.selected {
     border: 1px solid #5ecba3;
 }
 
-li.selected img {
+li.selected img, #checkboxes input:checked + label img{
     width: 20px;
     display: block;
     position: absolute;
@@ -409,6 +409,7 @@ li.selected img {
     margin-top: -0.4em;
     margin-right: -0.4em;
 }
+
 
 #AddExerciseLI{
     padding: 0;
@@ -428,8 +429,6 @@ li.selected img {
     width: 58px;
     background-position: center;
     background-size: 40px;
-    
-    
 }
 
 /* ---------------------
@@ -437,10 +436,16 @@ li.selected img {
 ---------------------*/
 
 #exercise-adder{
-    display: flex;
-    align-items: center;
-    height: 100px;
+    position: relative;
     margin-left: 3.75em;
+}
+
+#exercise-adder p {
+    margin: 0.8em 0 0.3em 0;
+}
+
+#exercise-adder form {
+    margin-top: 1em;
 }
 
 #exercise-adder *{
@@ -450,6 +455,30 @@ li.selected img {
 #workout-form {
     margin-left: 4em;
 }
+
+#checkboxes {
+    margin: 1em 0 ;
+}
+
+#checkboxes input {
+    display: none;
+}
+
+#checkboxes label {
+    position: relative;
+    padding: 0.3em 0.5em;
+    background-color: var(--background);
+    border-radius: 0.3em;
+    color: var(--text-color);
+    border: 1px solid transparent;
+    transition: all 500ms ease;
+}
+
+#checkboxes input:checked + label {
+    color: #5ecba3;
+    border-color: #5ecba3;
+}
+
 
 #workout-form input, #exercise-adder input {
     padding: 0.5em;
