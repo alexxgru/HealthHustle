@@ -134,6 +134,9 @@ Vue.createApp({
         darkmode(newVal) {
             localStorage.setItem('darkmode', newVal);
         },
+        selectedWorkout(newWorkout) {
+            this.addExerciseMenu = false;
+        }
     },
 
     methods: {
@@ -169,6 +172,10 @@ Vue.createApp({
             })
         },
 
+        exercisesNotInWorkout() {
+            let output = this.exercises.filter(x => this.selectedWorkout.Wexercises.every(y => y.name !== x.name));
+            return output;
+        },
 
         closePopup() {
             // Hide popup and reset data
@@ -180,6 +187,10 @@ Vue.createApp({
             this.newExerciseMuscleGroup = [];
 
         },
+        addToSelectedWorkout(ex){
+            this.selectedWorkout.Wexercises.push(ex);
+        }
+        ,
         addExerciseToWorkout(ex) {
             this.alert = false;
 

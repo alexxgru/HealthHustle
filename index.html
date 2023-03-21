@@ -70,9 +70,10 @@
                         </button>
                         <template v-if="addExerciseMenu">
                             <div id="popupmenu">
-                                <p>Click to add exercises</p>
+                                <p v-if="exercisesNotInWorkout().length > 0"><strong>Click to add exercises</strong></p>
+                                <p v-else"> <strong>No exercises to add!</strong></p>
                                 <ul>
-                                    <li v-for="ex in exercisesNotInWorkout"></li>
+                                    <li v-for="ex in exercisesNotInWorkout()" @click="addToSelectedWorkout(ex)">{{ex.name}}</li>
                                 </ul>
                             </div>
                         </template>

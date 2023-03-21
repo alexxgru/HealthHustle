@@ -190,6 +190,7 @@ svg {
 
 #exercises-top {
     display: flex;
+    position: relative;
     margin-right: 3em;
     align-items: baseline;
     gap: 1em;
@@ -204,6 +205,28 @@ svg {
     border-radius: 0.4em;
     font-size: 14px;
     transition: all 200ms ease;
+}
+
+#popupmenu {
+    position: absolute;
+    right: 0;
+    background-color: #357960;
+    padding: 1.5em;
+    border-radius: 0.3em;
+    z-index: 5;
+}
+
+#popupmenu li {
+    padding: 0.25em;
+    background-color: var(--background-2);
+    border-radius: 0.25em;
+    transition: all 200ms ease;
+}
+
+#popupmenu li:hover {
+    background-color: var(--hover-li);
+    cursor: pointer;
+    transform: translateY(-0.1em);
 }
 
 #showExercises:hover {
