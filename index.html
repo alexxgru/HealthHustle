@@ -25,7 +25,8 @@
                 <input type="checkbox" v-model="darkmode" @change="toggleDarkmode">
                 <div class="toggle"></div>
             </label>
-
+            <p v-for="ex in personalExercises"> {{ex.name}}</p>
+            <p v-for="ex in personalWorkouts"> {{ex.name}}</p>
         </header>
         <section id="main">
             <section id="workout-info">
@@ -71,7 +72,7 @@
                         <template v-if="addExerciseMenu">
                             <div id="popupmenu">
                                 <p v-if="exercisesNotInWorkout().length > 0"><strong>Click to add exercises</strong></p>
-                                <p v-else"> <strong>No exercises to add!</strong></p>
+                                <p v-else> <strong>No exercises to add!</strong></p>
                                 <ul>
                                     <li v-for="ex in exercisesNotInWorkout()" @click="addToSelectedWorkout(ex)">{{ex.name}}</li>
                                 </ul>
@@ -93,6 +94,7 @@
                             <p v-if="exercise.showDescription">{{exercise.description}}</p>
                         </li>
                     </ul>
+                    <h3>Sets & Reps</h3>
                     <div class="repControl">
                         <p>Sets: </p>
                         <input class="repcount" type="number" :value="selectedWorkout.setsPerExercise"

@@ -118,9 +118,12 @@ Vue.createApp({
             selectedWorkout: new Workout("", [new Exercise("", "", "")], 0, 0),
             exercises: [
             ],
-            personalExcersises: [
+            personalExercises: [
             ],
             workouts: [
+            ],
+            personalWorkouts: [
+
             ],
 
             // Dark mode
@@ -134,21 +137,33 @@ Vue.createApp({
         darkmode(newVal) {
             localStorage.setItem('darkmode', newVal);
         },
-        selectedWorkout(newWorkout) {
-            this.addExerciseMenu = false;
+        personalExercises(newEx) {
+            console.log('personalExercises updated', newEx);
+            localStorage.setItem('exercises', JSON.stringify(newEx));
+        },
+        personalWorkouts(newWorks) {
+            console.log('personalWorkouts updated', newWorks);
+            localStorage.setItem('workouts', JSON.stringify(newWorks));
         }
     },
 
     methods: {
         createWorkouts() {
             //creates example workouts
-            let exercisesToAdd = [];
-            for (let i = 0; i < 4; i++) {
-                exercisesToAdd.push(this.exercises[i])
-            }
-            let workout = new Workout("Workout 1", exercisesToAdd, 5, 10);
+            let workout1exercises = [];
+            let workout2exercises = [];
 
-            let workout2 = new Workout("Workout 2", [this.exercises[1]], 5, 10);
+            for (let i = 0; i < 9; i++) {
+                if (i >= 5){
+                    workout1exercises.push(this.exercises[i])
+                }
+                else {
+                    workout2exercises.push(this.exercises[i])
+                }
+            }
+            let workout = new Workout("Workout 1", workout1exercises, 5, 10);
+
+            let workout2 = new Workout("Workout 2", workout2exercises, 4, 14);
             this.workouts.push(workout);
             this.workouts.push(workout2);
             this.selectedWorkout = workout;
@@ -218,6 +233,7 @@ Vue.createApp({
             }
             let workout = new Workout(this.workoutname, this.exercisesInWorkout, 5, 10);
             this.workouts.push(workout);
+            this.personalWorkouts = [...this.personalWorkouts, workout];
             this.closePopup();
         },
         addExercise() {
@@ -234,6 +250,7 @@ Vue.createApp({
             }
 
             this.exercises.push(exercise);
+            this.personalExercises = [...this.personalExercises, exercise];
 
             this.newExerciseName = '';
             this.newExerciseDescription = '';
@@ -259,6 +276,20 @@ Vue.createApp({
                 left: 0,
                 behavior: "smooth",
             });
+        },
+        getStoredWorkouts() {
+            this.personalExercises = JSON.parse(localStorage.getItem('exercises') || '[]')
+            this.personalWorkouts = JSON.parse(localStorage.getItem('workouts') || '[]')
+
+            for (let ex of this.personalExercises) {
+                let newEx = new Exercise(ex.name , ex.description , ex.muscleGroups)
+                this.exercises.push(newEx)
+            }
+
+            for (let workout of this.personalWorkouts) {
+                let newWorkout = new Workout(workout.name, workout.Wexercises, workout.setsPerExercise, workout.repsPerExercise);
+                this.workouts.push(newWorkout)
+            }
         }
     },
     mounted() {
@@ -274,5 +305,6 @@ Vue.createApp({
         await this.loadExercises();
         this.createWorkouts();
         this.toggleDarkmode();
+        this.getStoredWorkouts();
     }
 }).mount("#app")
