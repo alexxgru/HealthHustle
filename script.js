@@ -146,7 +146,7 @@ Vue.createApp({
             this.workouts.push(workout2);
             this.selectedWorkout = workout;
         },
-        async created() {
+        async loadExercises() {
             return new Promise(async resolve => {
                 try {
                     const response = await fetch("exercises.json");
@@ -256,7 +256,7 @@ Vue.createApp({
     },
     async beforeMount() {
         this.getDarkModeSettings();
-        await this.created();
+        await this.loadExercises();
         this.createWorkouts();
         this.toggleDarkmode();
     }

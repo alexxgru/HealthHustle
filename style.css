@@ -341,7 +341,7 @@ svg {
     background-repeat: no-repeat;
     background-position: center;
     cursor: pointer;
-    animation: rotate-animation 9s ease-in-out infinite;
+    animation: rotate-animation 8s ease-in-out infinite;
     animation-fill-mode: both; 
 }
 
@@ -359,21 +359,32 @@ svg {
     0% {
         transform: rotateZ(0deg);
     }
-    
-    85% {
+
+    80% {
         opacity: 0.7;
         transform: rotateZ(0deg);
     }
-
-    92.5% {
-        transform: rotateZ(360deg);
+    
+    85% {
+        transform: rotateZ(30deg);
         opacity: 1.0;
     }
+
+    90% {
+        opacity: 1.0;
+        transform: rotateZ(-30deg);
+    }
     
+    95% {
+        opacity: 1.0;
+        transform: rotateZ(30deg);
+    }
+
     100% {
         opacity: 0.7;
         transform: rotateZ(0deg);
     }
+
 }
 
 /* --------------------------------
