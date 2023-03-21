@@ -99,6 +99,10 @@ Vue.createApp({
             alertName: false,
             exercise: new Exercise("", "", ""),
             showExerciseForm: false,
+            addExerciseMenu: false,
+
+
+
             newExerciseName: "",
             newExerciseDescription: "",
             newExerciseMuscleGroup: [],

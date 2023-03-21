@@ -52,7 +52,7 @@
                             <text class="text" x="212" y="103" text-anchor="middle">Arms</text>
     
                             <!-- Diagram lines below -->
-                            <path :d="selectedWorkout.diagramData" stroke="red" fill="rgba(255, 0, 0, 0.3)" style="stroke-width: 2px;"/>
+                            <path :d="selectedWorkout.diagramData" stroke="#FA8128" fill="rgba(250, 127, 40, 0.4)" style="stroke-width: 2px;"/>
                         </g>
                     </svg>
                     <div id="stats">
@@ -64,6 +64,34 @@
                     </div>
                 </div>
                 <div id="exercise-control">
+                    <div id="exercises-top">
+                        <h3>Exercises</h3>
+                        <button id="showExercises" @click="addExerciseMenu = !addExerciseMenu"> Add more {{addExerciseMenu ? "-": "+"}}
+                        </button>
+                        <template v-if="addExerciseMenu">
+                            <div id="popupmenu">
+                                <p>Click to add exercises</p>
+                                <ul>
+                                    <li v-for="ex in exercisesNotInWorkout"></li>
+                                </ul>
+                            </div>
+                        </template>
+                    </div>
+                    <ul>
+                        <li v-for="exercise in selectedWorkout.Wexercises">
+                            <p>{{exercise.name}}</p>
+                            <div id="toggling">
+                                <button id="descToggle" @click="exercise.showDescription = !exercise.showDescription">
+                                    {{ exercise.showDescription ? 'Hide' : 'Show' }} description
+                                </button>
+                                <label id="delete-exercise">
+                                    ❌
+                                    <button @click="removeExerciseFromWorkout(exercise)"></button>
+                                </label>
+                            </div>
+                            <p v-if="exercise.showDescription">{{exercise.description}}</p>
+                        </li>
+                    </ul>
                     <div class="repControl">
                         <p>Sets: </p>
                         <input class="repcount" type="number" :value="selectedWorkout.setsPerExercise"
@@ -72,21 +100,6 @@
                         <input class="repcount" type="number" :value="selectedWorkout.repsPerExercise"
                             @input="selectedWorkout.repsPerExercise = $event.target.value">
                     </div>
-                    <ul>
-                        <li v-for="exercise in selectedWorkout.Wexercises">
-                          <strong>{{exercise.name}}</strong>
-                          <div id="toggling">
-                              <button id="descToggle" @click="exercise.showDescription = !exercise.showDescription">
-                                {{ exercise.showDescription ? 'Hide' : 'Show' }} description
-                              </button>
-                              <label id="delete-exercise">
-                                ❌
-                                <button @click="removeExerciseFromWorkout(exercise)"></button>
-                              </label>
-                          </div>
-                          <p v-if="exercise.showDescription">{{exercise.description}}</p>
-                        </li>
-                      </ul>
                 </div>
             </section>
             <div id="workouts-div">
