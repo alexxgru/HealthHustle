@@ -137,16 +137,21 @@ Vue.createApp({
         darkmode(newVal) {
             localStorage.setItem('darkmode', newVal);
         },
-        personalExercises(newEx) {
-            console.log('personalExercises updated', newEx);
-            localStorage.setItem('exercises', JSON.stringify(newEx));
+        personalExercises: {
+            handler(newEx) {
+                console.log('personalExercises updated', newEx);
+                localStorage.setItem('exercises', JSON.stringify(newEx));
+            },
+            deep: true
         },
-        personalWorkouts(newWorks) {
-            console.log('personalWorkouts updated', newWorks);
-            localStorage.setItem('workouts', JSON.stringify(newWorks));
+        personalWorkouts: {
+            handler(newWorks) {
+                console.log('personalWorkouts updated', newWorks);
+                localStorage.setItem('workouts', JSON.stringify(newWorks));
+            },
+            deep: true
         }
     },
-
     methods: {
         createWorkouts() {
             //creates example workouts
