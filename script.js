@@ -14,12 +14,14 @@ class Workout {
     Wexercises = [];
     setsPerExercise = 0;
     repsPerExercise = 0;
+    deletable = true;
 
-    constructor(name, exercises, sets, reps) {
+    constructor(name, exercises, sets, reps, deletable) {
         this.name = name,
             this.Wexercises = exercises;
         this.setsPerExercise = sets;
         this.repsPerExercise = reps;
+        this.deletable = deletable;
     }
 
     // ballpark estimates of calorie burn and duration of workout
@@ -166,9 +168,9 @@ Vue.createApp({
                     workout2exercises.push(this.exercises[i])
                 }
             }
-            let workout = new Workout("Workout 1", workout1exercises, 5, 10);
+            let workout = new Workout("Workout 1", workout1exercises, 5, 10, false);
 
-            let workout2 = new Workout("Workout 2", workout2exercises, 4, 14);
+            let workout2 = new Workout("Workout 2", workout2exercises, 4, 14, false);
             this.workouts.push(workout);
             this.workouts.push(workout2);
             this.selectedWorkout = workout;
@@ -207,6 +209,15 @@ Vue.createApp({
             this.newExerciseMuscleGroup = [];
 
         },
+        deleteWorkout() {
+            const index1 = this.workouts.findIndex((x => x.name === this.selectedWorkout.name));
+            const index2 = this.personalWorkouts.findIndex((x => x.name === this.selectedWorkout.name));
+
+            this.workouts.splice(index1, 1);
+            this.personalWorkouts.splice(index2, 1);
+
+            this.selectedWorkout = this.workouts[0];
+        },
         addToSelectedWorkout(ex){
             this.selectedWorkout.Wexercises.push(ex);
         }
@@ -236,7 +247,7 @@ Vue.createApp({
                 this.alert = true;
                 return;
             }
-            let workout = new Workout(this.workoutname, this.exercisesInWorkout, 5, 10);
+            let workout = new Workout(this.workoutname, this.exercisesInWorkout, 5, 10, true);
             this.workouts.push(workout);
             this.personalWorkouts = [...this.personalWorkouts, workout];
             this.closePopup();
@@ -292,7 +303,7 @@ Vue.createApp({
             }
 
             for (let workout of this.personalWorkouts) {
-                let newWorkout = new Workout(workout.name, workout.Wexercises, workout.setsPerExercise, workout.repsPerExercise);
+                let newWorkout = new Workout(workout.name, workout.Wexercises, workout.setsPerExercise, workout.repsPerExercise, true);
                 this.workouts.push(newWorkout)
             }
         }

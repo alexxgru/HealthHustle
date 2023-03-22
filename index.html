@@ -28,6 +28,9 @@
         </header>
         <section id="main">
             <section id="workout-info">
+                <template v-if="selectedWorkout.deletable">
+                    <button id="deleteWorkout" @click="deleteWorkout">Delete workout</button>
+                </template>
                 <div id="title">
                     <h2>{{selectedWorkout.name}}</h2>
                     <p>This is your workout!</p>
