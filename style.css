@@ -1,7 +1,7 @@
-
-:root{
+:root {
     --main: black;
     --accent: #357960;
+    --accent-2: #357960;
     --background: #e4e4e4;
     --background-2: #f6f6f6;
     --path-color: black;
@@ -14,6 +14,7 @@
 
 :root.darkmode {
     --accent: #357960;
+    --accent-2: #5ecba3;
     --background: #1a1a1a;
     --background-2: #242424;
     --path-color: rgb(92, 92, 92);
@@ -33,14 +34,14 @@
 }
 
 body {
-    font-family: 'Titillium Web',sans-serif;
+    font-family: 'Titillium Web', sans-serif;
     background-color: var(--background);
     z-index: -1;
     color: var(--text-color);
     transition: background-color 500ms ease, color 500ms ease;
 }
 
-.no-transition{
+.no-transition {
     transition: none !important;
 }
 
@@ -62,7 +63,7 @@ li h3 {
     dark mode button css
 ------------------*/
 
-#darkmode input{
+#darkmode input {
     display: none;
 }
 
@@ -73,7 +74,8 @@ li h3 {
     width: 3.5em;
     height: 1.5em;
     border-radius: 1.2em;
-    background-color: rgb(102, 102, 102);}
+    background-color: rgb(102, 102, 102);
+}
 
 #darkmode .toggle {
     width: 1.34em;
@@ -83,7 +85,7 @@ li h3 {
     transition: transform 200ms ease;
 }
 
-#darkmode input:checked + .toggle{
+#darkmode input:checked+.toggle {
     transform: translateX(2em);
 }
 
@@ -101,7 +103,8 @@ li h3 {
     fill: var(--text-color);
 }
 
-.path , .pathMain{
+.path,
+.pathMain {
     stroke: var(--path-color);
     color: rgba(0, 4, 255, 0.3);
 }
@@ -114,7 +117,7 @@ li h3 {
 /*
 ---------------------------
 
- Workout info CSS beloc
+ Workout info CSS below
 
 ---------------------------
 */
@@ -135,6 +138,7 @@ li h3 {
     text-align: center;
     margin: 2em 0 0.5em 0;
     font-size: 24px;
+    color: var(--accent-2);
 }
 
 #title p {
@@ -153,14 +157,15 @@ li h3 {
 
 #deleteWorkout {
     position: absolute;
-    right: 2%;
+    right: 1%;
     top: 1%;
     padding: 0.3em;
     border: none;
     color: var(--text-color);
-    background-color: var(--background-2);
+    background-color: rgb(153, 2, 2);
     font-style: italic;
     font-size: 14px;
+    font-weight: 600;
     border: 1px solid transparent;
     border-radius: 0.4em;
     opacity: 0.75;
@@ -169,6 +174,7 @@ li h3 {
 
 #deleteWorkout:hover {
     border-color: rgb(177, 0, 0);
+    background-color: red;
     opacity: 1;
     cursor: pointer;
 }
@@ -180,7 +186,7 @@ li h3 {
     flex-direction: column;
     justify-content: start;
     align-items: center;
-    
+
 }
 
 #stats {
@@ -226,7 +232,7 @@ svg {
     border-radius: 0.4em;
     font-size: 14px;
     transition: all 200ms ease;
-} 
+}
 
 .repControl {
     margin-top: 1em;
@@ -287,38 +293,39 @@ svg {
         grid-template: "a" "c" "b";
         justify-content: center;
     }
-    
+
     #diagram {
         flex-direction: row;
         margin: 0;
         padding-bottom: 3em;
         border-bottom: 1px solid var(--accent);
     }
-    
+
     #exercise-control {
         border-right: none;
         padding-top: 3em;
         word-wrap: break-word;
         width: 420px;
     }
-    #workouts-div{
+
+    #workouts-div {
         display: flex;
         flex-direction: column;
         align-items: center;
         justify-content: center;
     }
-    
+
 
 }
 
-@media(max-width: 450px){
-    #workouts{
+@media(max-width: 450px) {
+    #workouts {
         display: flex;
         flex-direction: column;
         align-items: center;
     }
-    
-   
+
+
 
 }
 
@@ -356,6 +363,10 @@ svg {
     box-shadow: 0 0 10px 1px grey;
 }
 
+#workouts li h2 {
+    color: var(--accent-2);
+}
+
 #workouts p {
     height: 20px;
     margin: 0.4em;
@@ -364,7 +375,8 @@ svg {
     opacity: 0.8;
 }
 
-#workouts li span, #workout-info span {
+#workouts li span,
+#workout-info span {
     display: inline-block;
     width: 20px;
     height: 20px;
@@ -389,12 +401,14 @@ svg {
     padding: 2em;
 }
 
-#workouts > :hover, #AddExerciseLabel:hover, .exercise-list li:hover {
+#workouts> :hover,
+#AddExerciseLabel:hover,
+.exercise-list li:hover {
     background-color: var(--hover-li);
     cursor: pointer;
 }
 
-#workouts li:last-child{
+#workouts li:last-child {
     max-width: 100px;
     background-color: transparent;
     box-shadow: none;
@@ -415,7 +429,7 @@ svg {
     background-position: center;
     cursor: pointer;
     animation: rotate-animation 8s ease-in-out infinite;
-    animation-fill-mode: both; 
+    animation-fill-mode: both;
 }
 
 #addContainer {
@@ -437,7 +451,7 @@ svg {
         opacity: 0.7;
         transform: rotateZ(0deg);
     }
-    
+
     85% {
         transform: rotateZ(30deg);
         opacity: 1.0;
@@ -447,7 +461,7 @@ svg {
         opacity: 1.0;
         transform: rotateZ(-30deg);
     }
-    
+
     95% {
         opacity: 1.0;
         transform: rotateZ(30deg);
@@ -467,7 +481,7 @@ svg {
 #popup {
     position: relative;
     border-radius: 0.5em;
-    width: clamp(350px, 90%, 900px);    
+    width: clamp(350px, 100%, 900px);
     margin: auto;
     background-color: rgba(53, 121, 96, 0.815);
     z-index: 1;
@@ -497,11 +511,13 @@ svg {
     transition: all 500ms ease;
 }
 
-.exercise-list li:hover, #checkboxes label:hover {
+.exercise-list li:hover,
+#checkboxes label:hover {
     transform: translateY(-0.2em);
 }
 
-.exercise-list li img, #checkboxes img {
+.exercise-list li img,
+#checkboxes img {
     display: none;
 }
 
@@ -516,7 +532,8 @@ li.selected {
     border: 1px solid #5ecba3;
 }
 
-li.selected img, #checkboxes input:checked + label img{
+li.selected img,
+#checkboxes input:checked+label img {
     width: 20px;
     display: block;
     position: absolute;
@@ -527,13 +544,13 @@ li.selected img, #checkboxes input:checked + label img{
 }
 
 
-#AddExerciseLI{
+#AddExerciseLI {
     padding: 0;
     background-color: transparent;
-    
+
 }
 
-#AddExerciseLabel{
+#AddExerciseLabel {
     background-image: url(imgs/add.png);
     background-repeat: no-repeat;
     border-radius: 1em;
@@ -551,7 +568,7 @@ li.selected img, #checkboxes input:checked + label img{
     Add Workout form css
 ---------------------*/
 
-#exercise-adder{
+#exercise-adder {
     position: relative;
     margin-left: 3.75em;
 }
@@ -564,7 +581,7 @@ li.selected img, #checkboxes input:checked + label img{
     margin-top: 1em;
 }
 
-#exercise-adder *{
+#exercise-adder * {
     margin-right: 5px;
 }
 
@@ -573,7 +590,7 @@ li.selected img, #checkboxes input:checked + label img{
 }
 
 #checkboxes {
-    margin: 1em 0 ;
+    margin: 1em 0;
 }
 
 #checkboxes input {
@@ -590,13 +607,14 @@ li.selected img, #checkboxes input:checked + label img{
     transition: all 500ms ease;
 }
 
-#checkboxes input:checked + label {
+#checkboxes input:checked+label {
     color: #5ecba3;
     border-color: #5ecba3;
 }
 
 
-#workout-form input, #exercise-adder input {
+#workout-form input,
+#exercise-adder input {
     padding: 0.5em;
     border-radius: 0.6em;
     border: 1px solid var(--background);
@@ -604,12 +622,14 @@ li.selected img, #checkboxes input:checked + label img{
     color: var(--text-color);
 }
 
-#workout-form input::placeholder, #exercise-adder input::placeholder {
+#workout-form input::placeholder,
+#exercise-adder input::placeholder {
     color: var(--text-color);
     opacity: 0.8;
 }
 
-#workout-form button, #exercise-adder button {
+#workout-form button,
+#exercise-adder button {
     background-color: rgb(94, 203, 163);
     color: var(--text-color);
     margin-left: 1em;
@@ -619,7 +639,8 @@ li.selected img, #checkboxes input:checked + label img{
     transition: all 300ms ease;
 }
 
-#workout-form button:hover , #exercise-adder button:hover {
+#workout-form button:hover,
+#exercise-adder button:hover {
     background-color: rgba(94, 203, 163, 0.8);
     cursor: pointer;
     transform: translateY(-0.2em);
@@ -630,12 +651,13 @@ li.selected img, #checkboxes input:checked + label img{
 
 */
 
-#alert, #alertName {
+#alert,
+#alertName {
     margin-top: 0.25em;
     color: red;
 }
 
-#popup > p {
+#popup>p {
     margin: 0.8em 0 0 3.7em;
     font-size: 18px;
 }
@@ -653,7 +675,8 @@ li.selected img, #checkboxes input:checked + label img{
 }
 
 
-#close-popup:hover, #delete-exercise:hover {
+#close-popup:hover,
+#delete-exercise:hover {
     opacity: 1;
 }
 
@@ -671,7 +694,7 @@ li.selected img, #checkboxes input:checked + label img{
     gap: 0.25em;
 }
 
-#workout-builder-header{
+#workout-builder-header {
     margin: 1rem 4rem;
 }
 

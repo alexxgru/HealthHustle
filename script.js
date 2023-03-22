@@ -17,8 +17,8 @@ class Workout {
     deletable = true;
 
     constructor(name, exercises, sets, reps, deletable) {
-        this.name = name,
-            this.Wexercises = exercises;
+        this.name = name;
+        this.Wexercises = exercises;
         this.setsPerExercise = sets;
         this.repsPerExercise = reps;
         this.deletable = deletable;
@@ -48,7 +48,7 @@ class Workout {
         }
     }
 
-    get diagramData() {
+    get calcSvgLine() {
         let upper = 0;
         let core = 0;
         let arms = 0;
@@ -109,13 +109,6 @@ Vue.createApp({
             newExerciseDescription: "",
             newExerciseMuscleGroup: [],
 
-
-
-            // SVG line for diagram
-            svgLine: "M 100 160 L 120 100 L 100 90 L 52 100 Z"
-            ,
-
-
             //Other
             selectedWorkout: new Workout("", [new Exercise("", "", "")], 0, 0),
             exercises: [
@@ -161,7 +154,7 @@ Vue.createApp({
             let workout2exercises = [];
 
             for (let i = 0; i < 9; i++) {
-                if (i >= 5){
+                if (i >= 5) {
                     workout1exercises.push(this.exercises[i])
                 }
                 else {
@@ -218,7 +211,7 @@ Vue.createApp({
 
             this.selectedWorkout = this.workouts[0];
         },
-        addToSelectedWorkout(ex){
+        addToSelectedWorkout(ex) {
             this.selectedWorkout.Wexercises.push(ex);
         }
         ,
@@ -298,7 +291,7 @@ Vue.createApp({
             this.personalWorkouts = JSON.parse(localStorage.getItem('workouts') || '[]')
 
             for (let ex of this.personalExercises) {
-                let newEx = new Exercise(ex.name , ex.description , ex.muscleGroups)
+                let newEx = new Exercise(ex.name, ex.description, ex.muscleGroups)
                 this.exercises.push(newEx)
             }
 
