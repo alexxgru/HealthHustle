@@ -154,7 +154,7 @@ Vue.createApp({
             let workout2exercises = [];
 
             for (let i = 0; i < 9; i++) {
-                if (i >= 5) {
+                if (i <= 5) {
                     workout1exercises.push(this.exercises[i])
                 }
                 else {
@@ -202,6 +202,16 @@ Vue.createApp({
             this.newExerciseMuscleGroup = [];
 
         },
+        toggleDescriptions(exercise) {
+            if (exercise.showDescription) {
+                for (let ex of this.exercises.filter(x => x.showDescription)) {
+                    if (ex != exercise){
+                        ex.showDescription = false;
+                    }
+                }
+            } 
+        }
+        ,
         deleteWorkout() {
             const index1 = this.workouts.findIndex((x => x.name === this.selectedWorkout.name));
             const index2 = this.personalWorkouts.findIndex((x => x.name === this.selectedWorkout.name));

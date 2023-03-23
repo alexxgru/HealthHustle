@@ -94,7 +94,7 @@
                         <li v-for="exercise in selectedWorkout.Wexercises">
                             <p>{{exercise.name}}</p>
                             <div id="toggling">
-                                <button id="descToggle" @click="exercise.showDescription = !exercise.showDescription">
+                                <button id="descToggle" @click="exercise.showDescription = !exercise.showDescription, toggleDescriptions(exercise)">
                                     {{ exercise.showDescription ? 'Hide' : 'Show' }} description
                                 </button>
                                 <label id="delete-exercise">
