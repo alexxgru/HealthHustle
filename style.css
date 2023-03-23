@@ -218,7 +218,7 @@ svg {
 #exercises-top {
     display: flex;
     position: relative;
-    margin-right: 3em;
+    margin-right: 2em;
     align-items: baseline;
     gap: 1em;
 }
@@ -247,6 +247,7 @@ svg {
     z-index: 5;
     max-height: 400px;
     overflow-y: auto;
+    
 }
 
 #popupmenu li {
