@@ -291,7 +291,7 @@ Vue.createApp({
         },
         scrollPopup() {
             window.scrollTo({
-                top: document.body.scrollHeight,
+                top: document.body.scrollHeight - window.innerHeight - 200,
                 left: 0,
                 behavior: "smooth",
             });
