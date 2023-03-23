@@ -34,7 +34,7 @@
                 <div id="title">
                     <h2>{{selectedWorkout.name}}</h2>
                     <p>This is your workout!</p>
-                    <p>On the left you can see your exercises and on the right is a diagram of the targeted muscle
+                    <p>On the left you can <span id="pun">vue</span>view your exercises and on the right is a diagram of the targeted muscle
                         groups.</p>
                 </div>
                 <!-- Diagram -->
@@ -151,7 +151,7 @@
                     <p>Select exercises:</p>
                     <ul class="exercise-list">
                         <li v-for="ex in exercises" @mouseover="exercise = ex, resetTimeout"
-                            @click="addExerciseToWorkout(ex), $event.target.classList.toggle('selected')">{{ex.name}}
+                            @click="addExerciseToWorkout(ex), $event.target.classList.toggle('selected')"><p>{{ex.name}}</p>
                             <img src="./imgs/check.png" alt="123">
                         </li>
                         <li id="AddExerciseLI"><label id="AddExerciseLabel"><button @click="showExerciseForm = true"
@@ -163,7 +163,7 @@
                                 @click="showExerciseForm=false, newExerciseMuscleGroup = []"></button></label>
                         <form @submit.prevent="addExercise">
                             <p>Exercise name:</p>
-                            <input type="text" v-model="newExerciseName" placeholder="Name your exercise" autofocus
+                            <input id="exNameInput" type="text" v-model="newExerciseName" placeholder="Name your exercise" autofocus
                                 required>
                             <p>Description (optional):</p>
                             <input v-model="newExerciseDescription" placeholder="Write a description">

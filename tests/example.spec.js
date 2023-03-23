@@ -1,19 +1,49 @@
 // @ts-check
 const { test, expect } = require('@playwright/test');
 
-test('has title', async ({ page }) => {
-  await page.goto('https://playwright.dev/');
+test('add workout', async ({ page }) => {
+  await page.goto('http://127.0.0.1:5500/');
 
-  // Expect a title "to contain" a substring.
-  await expect(page).toHaveTitle(/Playwright/);
+  let workoutPlus = page.locator('#addLabel')
+  await workoutPlus.click();
+  let workoutInput = page.locator('#workout-form input')
+  await workoutInput.type('Workout');
+  let workoutSubmit = page.locator('#workout-form button')
+
+  let pushups = await page.locator('.exercise-list li:first-child')
+  await pushups.click();
+  await workoutSubmit.click();
+
+  let workout = await page.textContent('#workouts li:nth-last-child(2) h2')
+  await expect(workout).toEqual('Workout');
+
+
+
+  
+
+  
+  
+  
 });
 
-test('get started link', async ({ page }) => {
-  await page.goto('https://playwright.dev/');
+test('add exercise', async ({ page }) => {
+  await page.goto('http://127.0.0.1:5500/');
 
-  // Click the get started link.
-  await page.getByRole('link', { name: 'Get started' }).click();
+  let workoutPlus = page.locator('#addLabel')
+  await workoutPlus.click();
 
-  // Expects the URL to contain intro.
-  await expect(page).toHaveURL(/.*intro/);
+  let exercisePlus = page.locator('#AddExerciseLabel')
+  await exercisePlus.click();
+
+
+  let input = page.locator('#exNameInput')
+  let submit = page.locator('#checkboxes button')
+
+  await input.type('Exercise');
+  await submit.click();
+
+  // let exercise = page.locator('#exercise-list:nth-last-child(2)');
+  let exerciseName = await page.textContent('.exercise-list li:nth-last-child(2) p');
+  await expect(exerciseName).toEqual('Exercise');
+
 });
