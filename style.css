@@ -245,6 +245,8 @@ svg {
     padding: 1.5em;
     border-radius: 0.3em;
     z-index: 5;
+    max-height: 400px;
+    overflow-y: auto;
 }
 
 #popupmenu li {
