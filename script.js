@@ -253,6 +253,8 @@ Vue.createApp({
             let workout = new Workout(this.workoutname, this.exercisesInWorkout, 5, 10, true);
             this.workouts.push(workout);
             this.personalWorkouts = [...this.personalWorkouts, workout];
+            this.selectedWorkout = workout;
+            this.scrollTop();
             this.closePopup();
         },
         addExercise() {
@@ -298,6 +300,13 @@ Vue.createApp({
                 left: 0,
                 behavior: "smooth",
             });
+        },
+        scrollTop() {
+            window.scrollTo({
+                top: 0,
+                left: 0,
+                behavior: "smooth",
+            })
         },
         getStoredWorkouts() {
             this.personalExercises = JSON.parse(localStorage.getItem('exercises') || '[]')

@@ -17,10 +17,7 @@
 <body class="no-transition">
     <div id="app" @load>
         <header>
-            <nav>
-            </nav>
             <h1>HealthHustle</h1>
-
             <label id="darkmode">
                 <input type="checkbox" v-model="darkmode" @change="toggleDarkmode">
                 <div class="toggle"></div>
@@ -155,7 +152,7 @@
                             <img src="./imgs/check.png" alt="123">
                         </li>
                         <li id="AddExerciseLI"><label id="AddExerciseLabel"><button @click="showExerciseForm = true"
-                        "></button></label> </li>
+                        ></button></label> </li>
                     </ul>
                     <div id="exercise-adder" v-if="showExerciseForm">
                         <h3>Add Exercise</h3>

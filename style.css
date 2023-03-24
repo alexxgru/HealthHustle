@@ -10,6 +10,8 @@
     --situp-logo: url(./imgs/situps_dark.png);
     --time-logo: url(./imgs/time_dark.png);
     --cals-logo: url(./imgs/cals_dark.png);
+    --darmode-border: #f6f6f6;
+    --darkmode-bg: rgb(181, 181, 181);
 }
 
 :root.darkmode {
@@ -23,6 +25,8 @@
     --situp-logo: url(./imgs/situps_light.png);
     --time-logo: url(./imgs/time_light.png);
     --cals-logo: url(./imgs/cals_light.png);
+    --darmode-border: #333333;
+    --darkmode-bg: rgb(77, 77, 77);
 }
 
 
@@ -70,24 +74,31 @@ li h3 {
 #darkmode {
     position: absolute;
     right: 10%;
-    border: 3px solid white;
+    border: 2px solid var(--darmode-border);
     width: 3.5em;
     height: 1.5em;
     border-radius: 1.2em;
-    background-color: rgb(102, 102, 102);
+    background-color: var(--darkmode-bg);
 }
 
 #darkmode .toggle {
-    width: 1.34em;
-    height: 100%;
-    background-color: white;
+    position: absolute;
+    width: 1.3em;
+    height: 1.3em;
+    background-color: rgb(234, 231, 231);
     border-radius: 1em;
-    transition: transform 200ms ease;
+    background-image: url(imgs/sun.png);
+    background-size: 18px;
+    background-position: center;
+    background-repeat: no-repeat;
+    transition: transform 300ms ease;
 }
 
 #darkmode input:checked+.toggle {
-    transform: translateX(2em);
-}
+    transform: translateX(1.9em);
+    background-color: #333333;
+    background-image: url(imgs/moon.png);
+}   
 
 /* ---------------------------
 
@@ -358,15 +369,16 @@ svg {
     position: relative;
     display: flex;
     flex-wrap: wrap;
+    margin: auto;
     margin-top: 2em;
     gap: 1em;
-    width: 100%;
+    max-width: 850px;
 }
 
 #workouts li {
     list-style: none;
     background-color: var(--background-2);
-    width: clamp(200px, 25%, 300px);
+    width: clamp(190px, 32%, 300px);
     min-height: 130px;
     border-radius: 2em;
     box-shadow: 0 0 10px 1px grey;
@@ -497,6 +509,7 @@ svg {
     margin-top: 2em;
     padding: 1em;
     min-height: 585px;
+    box-shadow: 0 0 10px 1px var(--text-color);
 }
 
 .exercise-list {
