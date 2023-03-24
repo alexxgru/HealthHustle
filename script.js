@@ -287,6 +287,9 @@ Vue.createApp({
             const savedDarkmode = localStorage.getItem('darkmode');
             if (savedDarkmode !== null) {
                 this.darkmode = (savedDarkmode === 'true');
+            } else {
+                const preferredDarkmode = window.matchMedia('(prefers-color-scheme: dark)').matches;
+                this.darkmode = preferredDarkmode;
             }
         },
         scrollPopup() {

@@ -146,6 +146,8 @@ li h3 {
 
 #title p {
     font-style: italic;
+    width: 80%;
+    margin: auto;
 }
 
 #title {
@@ -358,6 +360,7 @@ svg {
     flex-wrap: wrap;
     margin-top: 2em;
     gap: 1em;
+    width: 100%;
 }
 
 #workouts li {
