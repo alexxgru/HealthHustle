@@ -569,7 +569,10 @@ li.selected img,
 #AddExerciseLI {
     padding: 0;
     background-color: transparent;
+}
 
+#AddExerciseLI button {
+    visibility: hidden;
 }
 
 #AddExerciseLabel {
