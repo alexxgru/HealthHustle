@@ -115,7 +115,7 @@
             <div id="workouts-div">
                 <h2>My Workouts</h2>
                 <ul id="workouts">
-                    <li v-for="w in workouts" @click="selectedWorkout = w" class="workoutdiv">
+                    <li v-for="w in workouts" @click="selectedWorkout = w, scrollTop() " class="workoutdiv">
                         <h2>{{w.name}}</h2>
                         <p><span id="workout-icon"></span>{{w.Wexercises.length}} {{w.Wexercises.length == 1 ?
                             "exercise" :

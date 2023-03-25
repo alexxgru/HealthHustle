@@ -104,6 +104,12 @@ li h3 {
     background-image: url(imgs/moon.png);
 }   
 
+@media (max-width: 550px) {
+    #darkmode {
+        right: 2%;
+    }
+}
+
 /* ---------------------------
 
     SVG css below
@@ -336,6 +342,11 @@ svg {
         flex-direction: column;
         align-items: center;
         justify-content: center;
+    }
+
+    #delete-exercise {
+        visibility: visible;
+        margin-left: 0.5em;
     }
 
 
@@ -694,6 +705,11 @@ li.selected img,
     opacity: 0.8;
 }
 
+
+#workout-builder-header {
+    margin: 1rem 4rem;
+}
+
 #workout-form button,
 #exercise-adder button {
     background-color: rgb(94, 203, 163);
@@ -712,6 +728,30 @@ li.selected img,
     transform: translateY(-0.2em);
 }
 
+#popup>p {
+    margin: 0.8em 0 0 3.7em;
+    font-size: 18px;
+}
+
+@media(max-width: 500px) {
+    #exercise-info {
+        margin: 1rem 2rem;
+    }
+
+    #workout-form, #workout-builder-header, #exercise-adder ,
+    #popup>p {
+        margin-left: 2em;
+    }
+
+    #exercise-adder button {
+        margin-top: 2em;
+        margin-left: 0;
+    }
+    .exercise-list {
+        gap: 0.5em;
+    }
+}
+
 /*
 
 
@@ -721,11 +761,6 @@ li.selected img,
 #alertName {
     margin-top: 0.25em;
     color: red;
-}
-
-#popup>p {
-    margin: 0.8em 0 0 3.7em;
-    font-size: 18px;
 }
 
 #close-popup button {
@@ -758,10 +793,6 @@ li.selected img,
 .repControl {
     display: flex;
     gap: 0.25em;
-}
-
-#workout-builder-header {
-    margin: 1rem 4rem;
 }
 
 footer {
