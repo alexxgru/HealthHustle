@@ -15,12 +15,12 @@
 </head>
 
 <body class="no-transition">
-    <div id="app" @load>
+    <div id="app">
         <header>
             <h1>HealthHustle</h1>
             <label id="darkmode">
-                <input type="checkbox" v-model="darkmode" @change="toggleDarkmode">
-                <div class="toggle"></div>
+                <input id="drk"  type="checkbox" v-model="darkmode" @change="toggleDarkmode">
+                <label for="drk"class="toggle"></label>
             </label>
         </header>
         <section id="main">
@@ -62,11 +62,11 @@
                     </svg>
                     <div id="stats">
                         <h4>Workout Info:</h4>
-                        <p><span id="workout-icon"></span>{{selectedWorkout.Wexercises.length}}
+                        <p><span class="workout-icon"></span>{{selectedWorkout.Wexercises.length}}
                             {{selectedWorkout.Wexercises.length == 1 ? "exercise" :
                             "exercises"}}</p>
-                        <p><span id="time-icon"></span>~{{selectedWorkout.estimateTime}}</p>
-                        <p><span id="cal-icon"></span>~{{selectedWorkout.calcCalories}} calories</p>
+                        <p><span class="time-icon"></span>~{{selectedWorkout.estimateTime}}</p>
+                        <p><span class="cal-icon"></span>~{{selectedWorkout.calcCalories}} calories</p>
                     </div>
                 </div>
                 <div id="exercise-control">
@@ -89,11 +89,11 @@
                     <ul>
                         <li v-for="exercise in selectedWorkout.Wexercises">
                             <p>{{exercise.name}}</p>
-                            <div id="toggling">
-                                <button id="descToggle" @click="exercise.showDescription = !exercise.showDescription, toggleDescriptions(exercise)">
+                            <div class="toggling">
+                                <button class="descToggle" @click="exercise.showDescription = !exercise.showDescription, toggleDescriptions(exercise)">
                                     {{ exercise.showDescription ? 'Hide' : 'Show' }} description
                                 </button>
-                                <label id="delete-exercise">
+                                <label class="delete-exercise">
                                     ❌
                                     <button @click="removeExerciseFromWorkout(exercise)"></button>
                                 </label>
@@ -117,11 +117,11 @@
                 <ul id="workouts">
                     <li v-for="w in workouts" @click="selectedWorkout = w, scrollTop() " class="workoutdiv">
                         <h2>{{w.name}}</h2>
-                        <p><span id="workout-icon"></span>{{w.Wexercises.length}} {{w.Wexercises.length == 1 ?
+                        <p><span class="workout-icon"></span>{{w.Wexercises.length}} {{w.Wexercises.length == 1 ?
                             "exercise" :
                             "exercises"}}</p>
-                        <p><span id="time-icon"></span>~{{w.estimateTime}}</p>
-                        <p><span id="cal-icon"></span>~{{w.calcCalories}} calories</p>
+                        <p><span class="time-icon"></span>~{{w.estimateTime}}</p>
+                        <p><span class="cal-icon"></span>~{{w.calcCalories}} calories</p>
                     </li>
                     <li id="addContainer">
                         <label id="addLabel" for="add" @click="popup = true, scrollPopup()"><button
@@ -136,7 +136,7 @@
                     <h3 id="workout-builder-header">Workout Builder</h3>
                     <form id="workout-form" @submit.prevent="addWorkout">
                         <p>Name:</p>
-                        <input type="text" v-model="workoutname" placeholder="Name your workout" autofocus required>
+                        <input type="text" v-model="workoutname" placeholder="Name your workout" required>
                         <button type="submit">Add Workout</button>
                         <p id="alert" v-if="alert"> You must select atleast one exercise!</p>
                     </form>

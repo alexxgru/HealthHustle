@@ -294,7 +294,7 @@ svg {
     cursor: pointer;
 }
 
-#descToggle {
+.descToggle {
     background-color: var(--background-2);
     color: #5ecba3;
     border: none;
@@ -302,18 +302,22 @@ svg {
     opacity: 0.8;
 }
 
-#descToggle:hover {
+.descToggle:hover {
     opacity: 1;
 }
 
-#delete-exercise {
+.delete-exercise {
     visibility: hidden;
     font-size: 14px;
     padding: 0.5em;
     opacity: 0.6;
 }
 
-#exercise-control li:hover #delete-exercise {
+.delete-exercise button {
+    display: none;
+}
+
+#exercise-control li:hover .delete-exercise {
     visibility: visible;
 }
 
@@ -443,15 +447,15 @@ svg {
     background-size: contain;
 }
 
-#workout-icon {
+.workout-icon {
     background-image: var(--situp-logo);
 }
 
-#time-icon {
+.time-icon {
     background-image: var(--time-logo);
 }
 
-#cal-icon {
+.cal-icon {
     background-image: var(--cals-logo);
 }
 
