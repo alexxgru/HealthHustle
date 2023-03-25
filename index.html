@@ -31,8 +31,7 @@
                 <div id="title">
                     <h2>{{selectedWorkout.name}}</h2>
                     <p>This is your workout!</p>
-                    <p>On the left you can see your exercises and on the right is a diagram of the targeted muscle
-                        groups.</p>
+                    <p>Here you can <span id="pun">vue</span>view statistics and swap out exercises 💪</p>
                 </div>
                 <!-- Diagram -->
                 <div id=diagram>
@@ -151,7 +150,7 @@
                             @click="addExerciseToWorkout(ex), $event.target.classList.toggle('selected')">{{ex.name}}
                             <img src="./imgs/check.png" alt="123">
                         </li>
-                        <li id="AddExerciseLI"><label id="AddExerciseLabel"><button @click="showExerciseForm = true"
+                        <li id="AddExerciseLI"><label id="AddExerciseLabel"><button @click="showExerciseForm = !showExerciseForm"
                         ></button></label> </li>
                     </ul>
                     <div id="exercise-adder" v-if="showExerciseForm">

@@ -63,6 +63,10 @@ li h3 {
     margin: 1em 0em 1em 3em
 }
 
+#main {
+    width: clamp(400px, 90%, 900px);
+    margin: auto;
+}
 /*--------------
     dark mode button css
 ------------------*/
@@ -95,7 +99,7 @@ li h3 {
 }
 
 #darkmode input:checked+.toggle {
-    transform: translateX(1.9em);
+    transform: translateX(1.96em);
     background-color: #333333;
     background-image: url(imgs/moon.png);
 }   
@@ -234,7 +238,7 @@ svg {
 #exercises-top {
     display: flex;
     position: relative;
-    margin-right: 2em;
+    margin-right: 1em;
     align-items: baseline;
     gap: 1em;
 }
@@ -337,14 +341,40 @@ svg {
 
 }
 
-@media(max-width: 450px) {
-    #workouts {
-        display: flex;
+@media(max-width: 550px){
+    #diagram {
         flex-direction: column;
-        align-items: center;
+        width: 350px;
+        margin: auto;
+    }
+    svg {
+        margin: 0 0 1em 0;
     }
 
+    #exercise-control {
+        width: clamp(200px, 100% , 350px);
+        margin: 0 0 0 1em;
+    }
 
+    #exercise-control > ul {
+        width: 250px;
+    }
+
+    #workout-info {
+        width: 100%;
+    }
+
+    #main {
+        width: 95%;
+    }
+}
+
+
+@media (max-width: 950px) {
+
+    #popupmenu {
+        width: 150px;
+    }
 
 }
 
@@ -356,10 +386,6 @@ svg {
 
 
 */
-#main {
-    width: clamp(400px, 90%, 900px);
-    margin: auto;
-}
 
 #workouts-div {
     margin-top: 3em;
@@ -467,36 +493,51 @@ svg {
     0% {
         transform: rotateZ(0deg);
     }
-
+    
     80% {
         opacity: 0.7;
         transform: rotateZ(0deg);
     }
-
+    
     85% {
         transform: rotateZ(30deg);
         opacity: 1.0;
     }
-
+    
     90% {
         opacity: 1.0;
         transform: rotateZ(-30deg);
     }
-
+    
     95% {
         opacity: 1.0;
         transform: rotateZ(30deg);
     }
-
+    
     100% {
         opacity: 0.7;
         transform: rotateZ(0deg);
     }
-
+    
 }
 
+@media(max-width: 450px) {
+    #workouts {
+        display: flex;
+        flex-direction: column;
+        flex-wrap: nowrap;
+        align-items: center;
+        justify-content: center;
+    }
+
+    #workouts li {
+        width: clamp(250px, 100%, 300px);
+    }
+
+
+}
 /* --------------------------------
-    Popup styling 
+Popup styling 
 ---------------------*/
 
 #popup {
@@ -509,7 +550,7 @@ svg {
     margin-top: 2em;
     padding: 1em;
     min-height: 585px;
-    box-shadow: 0 0 10px 1px var(--text-color);
+    box-shadow: 0 0 10px 1px #333333;
 }
 
 .exercise-list {
