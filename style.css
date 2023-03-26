@@ -67,7 +67,6 @@ li h3 {
     width: clamp(400px, 90%, 900px);
     margin: auto;
 }
-
 /*--------------
     dark mode button css
 ------------------*/
@@ -103,7 +102,7 @@ li h3 {
     transform: translateX(1.96em);
     background-color: #333333;
     background-image: url(imgs/moon.png);
-}
+}   
 
 @media (max-width: 550px) {
     #darkmode {
@@ -118,7 +117,7 @@ li h3 {
 ----------------------------
 */
 
-#pun {
+#pun{
     text-decoration: line-through;
 }
 
@@ -274,7 +273,7 @@ svg {
     z-index: 5;
     max-height: 400px;
     overflow-y: auto;
-
+    
 }
 
 #popupmenu li {
@@ -357,23 +356,22 @@ svg {
 
 }
 
-@media(max-width: 550px) {
+@media(max-width: 550px){
     #diagram {
         flex-direction: column;
         width: 350px;
         margin: auto;
     }
-
     svg {
         margin: 0 0 1em 0;
     }
 
     #exercise-control {
-        width: clamp(200px, 100%, 350px);
+        width: clamp(200px, 100% , 350px);
         margin: 0 0 0 1em;
     }
 
-    #exercise-control>ul {
+    #exercise-control > ul {
         width: 250px;
     }
 
@@ -510,32 +508,32 @@ svg {
     0% {
         transform: rotateZ(0deg);
     }
-
+    
     80% {
         opacity: 0.7;
         transform: rotateZ(0deg);
     }
-
+    
     85% {
         transform: rotateZ(30deg);
         opacity: 1.0;
     }
-
+    
     90% {
         opacity: 1.0;
         transform: rotateZ(-30deg);
     }
-
+    
     95% {
         opacity: 1.0;
         transform: rotateZ(30deg);
     }
-
+    
     100% {
         opacity: 0.7;
         transform: rotateZ(0deg);
     }
-
+    
 }
 
 @media(max-width: 450px) {
@@ -553,7 +551,6 @@ svg {
 
 
 }
-
 /* --------------------------------
 Popup styling 
 ---------------------*/
@@ -745,9 +742,7 @@ li.selected img,
         margin: 1rem 2rem;
     }
 
-    #workout-form,
-    #workout-builder-header,
-    #exercise-adder,
+    #workout-form, #workout-builder-header, #exercise-adder ,
     #popup>p {
         margin-left: 2em;
     }
@@ -756,7 +751,6 @@ li.selected img,
         margin-top: 2em;
         margin-left: 0;
     }
-
     .exercise-list {
         gap: 0.5em;
     }
@@ -828,7 +822,7 @@ footer a:hover {
     text-decoration: underline;
 }
 
-footer div {
+footer div{
     position: absolute;
     width: 100%;
     top: 30%;

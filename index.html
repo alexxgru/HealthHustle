@@ -19,8 +19,8 @@
         <header>
             <h1>HealthHustle</h1>
             <label id="darkmode">
-                <input id="drk" type="checkbox" v-model="darkmode" @change="toggleDarkmode">
-                <label for="drk" class="toggle"></label>
+                <input id="drk"  type="checkbox" v-model="darkmode" @change="toggleDarkmode">
+                <label for="drk"class="toggle"></label>
             </label>
         </header>
         <section id="main">
@@ -90,8 +90,7 @@
                         <li v-for="exercise in selectedWorkout.Wexercises">
                             <p>{{exercise.name}}</p>
                             <div class="toggling">
-                                <button class="descToggle"
-                                    @click="exercise.showDescription = !exercise.showDescription, toggleDescriptions(exercise)">
+                                <button class="descToggle" @click="exercise.showDescription = !exercise.showDescription, toggleDescriptions(exercise)">
                                     {{ exercise.showDescription ? 'Hide' : 'Show' }} description
                                 </button>
                                 <label class="delete-exercise">
@@ -148,12 +147,11 @@
                     <p>Select exercises:</p>
                     <ul class="exercise-list">
                         <li v-for="ex in exercises" @mouseover="exercise = ex, resetTimeout"
-                            @click="addExerciseToWorkout(ex), $event.target.classList.toggle('selected')">
-                            <p>{{ex.name}}</p>
+                            @click="addExerciseToWorkout(ex), $event.target.classList.toggle('selected')"><p>{{ex.name}}</p>
                             <img src="./imgs/check.png" alt="123">
                         </li>
-                        <li id="AddExerciseLI"><label id="AddExerciseLabel"><button
-                                    @click="showExerciseForm = !showExerciseForm"></button></label> </li>
+                        <li id="AddExerciseLI"><label id="AddExerciseLabel"><button @click="showExerciseForm = !showExerciseForm"
+                        ></button></label> </li>
                     </ul>
                     <div id="exercise-adder" v-if="showExerciseForm">
                         <h3>Add Exercise</h3>
@@ -161,8 +159,8 @@
                                 @click="showExerciseForm=false, newExerciseMuscleGroup = []"></button></label>
                         <form @submit.prevent="addExercise">
                             <p>Exercise name:</p>
-                            <input type="text" id="exNameInput" v-model="newExerciseName"
-                                placeholder="Name your exercise" autofocus required>
+                            <input type="text" id="exNameInput" v-model="newExerciseName" placeholder="Name your exercise" autofocus
+                                required>
                             <p>Description (optional):</p>
                             <input v-model="newExerciseDescription" placeholder="Write a description">
                             <p>Targeted muscle groups: </p>
@@ -206,8 +204,7 @@
         <footer>
             <div>
                 <p>Frontend School Project</p>
-                <p>Written by <a href="https://www.linkedin.com/in/alex-grundell-060005264/">Alex Grundell</a> & <a
-                        href="https://www.linkedin.com/in/rickard-thunborg-472596242/">Rickard Thunborg</a></p>
+                <p>Written by <a href="https://www.linkedin.com/in/alex-grundell-060005264/">Alex Grundell</a> & <a href="https://www.linkedin.com/in/rickard-thunborg-472596242/">Rickard Thunborg</a></p>
             </div>
         </footer>
     </div>

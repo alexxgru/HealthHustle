@@ -201,11 +201,11 @@ Vue.createApp({
         toggleDescriptions(exercise) {
             if (exercise.showDescription) {
                 for (let ex of this.exercises.filter(x => x.showDescription)) {
-                    if (ex != exercise) {
+                    if (ex != exercise){
                         ex.showDescription = false;
                     }
                 }
-            }
+            } 
         }
         ,
         deleteWorkout() {
