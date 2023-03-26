@@ -11,14 +11,14 @@ class Exercise {
 class Workout {
 
     name = "";
-    workoutExercises = [];
+    Wexercises = [];
     setsPerExercise = 0;
     repsPerExercise = 0;
     deletable = true;
 
     constructor(name, exercises, sets, reps, deletable) {
         this.name = name;
-        this.workoutExercises = exercises;
+        this.Wexercises = exercises;
         this.setsPerExercise = sets;
         this.repsPerExercise = reps;
         this.deletable = deletable;
@@ -27,14 +27,14 @@ class Workout {
     // ballpark estimates of calorie burn and duration of workout
 
     get calcCalories() {
-        return Math.floor(this.setsPerExercise * this.repsPerExercise * this.workoutExercises.length * 0.45);
+        return Math.floor(this.setsPerExercise * this.repsPerExercise * this.Wexercises.length * 0.45);
     }
 
     get estimateTime() {
         //Seconds of rest between each set
         let restTime = 30;
 
-        let workoutduration = ((this.repsPerExercise * this.workoutExercises.length * this.setsPerExercise * 4) +
+        let workoutduration = ((this.repsPerExercise * this.Wexercises.length * this.setsPerExercise * 4) +
             this.setsPerExercise * restTime) / 60;
 
         let hours = Math.floor(workoutduration / 60);
@@ -54,7 +54,7 @@ class Workout {
         let arms = 0;
         let legs = 0;
 
-        for (let exercise of this.workoutExercises) {
+        for (let exercise of this.Wexercises) {
             for (let muscleGroup of exercise.muscleGroups) {
                 muscleGroup === "Arms" ? arms++ : muscleGroup === "Core" ? core++ : muscleGroup === "Legs" ? legs++ : upper++;
             }
@@ -73,9 +73,13 @@ class Workout {
         }
 
         let uppervalue = 80 - ((upper / sum * 100) * times);
+
         let legsvalue = ((legs / sum * 100) * times) + 120;
+
         let armsvalue = ((arms / sum * 100) * times) + 120;
+
         let corevalue = 80 - ((core / sum * 100) * times);
+
 
         return "M 100 " + legsvalue + " L " + armsvalue + " 100 L 100 " + uppervalue + " L " + corevalue + " 100 Z";
     }
@@ -184,7 +188,7 @@ Vue.createApp({
         },
 
         exercisesNotInWorkout() {
-            let output = this.exercises.filter(x => this.selectedWorkout.workoutExercises.every(y => y.name !== x.name));
+            let output = this.exercises.filter(x => this.selectedWorkout.Wexercises.every(y => y.name !== x.name));
             return output;
         },
 
@@ -218,7 +222,7 @@ Vue.createApp({
             this.selectedWorkout = this.workouts[0];
         },
         addToSelectedWorkout(ex) {
-            this.selectedWorkout.workoutExercises.push(ex);
+            this.selectedWorkout.Wexercises.push(ex);
         }
         ,
         addExerciseToWorkout(ex) {
@@ -236,8 +240,8 @@ Vue.createApp({
             }
         },
         removeExerciseFromWorkout(ex) {
-            const index = this.selectedWorkout.workoutExercises.findIndex(x => x.name === ex.name);
-            this.selectedWorkout.workoutExercises.splice(index, 1);
+            const index = this.selectedWorkout.Wexercises.findIndex(x => x.name === ex.name);
+            this.selectedWorkout.Wexercises.splice(index, 1);
         }
         ,
         addWorkout() {
@@ -314,7 +318,7 @@ Vue.createApp({
             }
 
             for (let workout of this.personalWorkouts) {
-                let newWorkout = new Workout(workout.name, workout.workoutExercises, workout.setsPerExercise, workout.repsPerExercise, true);
+                let newWorkout = new Workout(workout.name, workout.Wexercises, workout.setsPerExercise, workout.repsPerExercise, true);
                 this.workouts.push(newWorkout)
             }
         }
