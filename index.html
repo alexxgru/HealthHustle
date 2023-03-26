@@ -147,7 +147,7 @@
                     <p>Select exercises:</p>
                     <ul class="exercise-list">
                         <li v-for="ex in exercises" @mouseover="exercise = ex, resetTimeout"
-                            @click="addExerciseToWorkout(ex), $event.target.classList.toggle('selected')"><p>{{ex.name}}</p>
+                            @click="addExerciseToWorkout(ex), $event.target.classList.toggle('selected')">{{ex.name}}
                             <img src="./imgs/check.png" alt="123">
                         </li>
                         <li id="AddExerciseLI"><label id="AddExerciseLabel"><button @click="showExerciseForm = !showExerciseForm"
@@ -159,7 +159,7 @@
                                 @click="showExerciseForm=false, newExerciseMuscleGroup = []"></button></label>
                         <form @submit.prevent="addExercise">
                             <p>Exercise name:</p>
-                            <input type="text" id="exNameInput" v-model="newExerciseName" placeholder="Name your exercise" autofocus
+                            <input type="text" v-model="newExerciseName" placeholder="Name your exercise" autofocus
                                 required>
                             <p>Description (optional):</p>
                             <input v-model="newExerciseDescription" placeholder="Write a description">
