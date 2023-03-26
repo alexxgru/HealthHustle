@@ -16,7 +16,7 @@ test('add workout', async ({ page }) => {
 
   let workout = await page.textContent('#workouts li:nth-last-child(2) h2')
   await expect(workout).toEqual('Workout');
-  
+
 });
 
 test('add exercise', async ({ page }) => {
