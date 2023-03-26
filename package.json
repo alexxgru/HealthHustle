@@ -16,6 +16,6 @@
   },
   "homepage": "https://github.com/alexxgru/Uppgift_4#readme",
   "devDependencies": {
-    "@playwright/test": "^1.32.0"
+    "@playwright/test": "^1.32.1"
   }
 }
