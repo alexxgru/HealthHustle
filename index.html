@@ -62,8 +62,8 @@
                     </svg>
                     <div id="stats">
                         <h4>Workout Info:</h4>
-                        <p><span class="workout-icon"></span>{{selectedWorkout.Wexercises.length}}
-                            {{selectedWorkout.Wexercises.length == 1 ? "exercise" :
+                        <p><span class="workout-icon"></span>{{selectedWorkout.workoutExercises.length}}
+                            {{selectedWorkout.workoutExercises.length == 1 ? "exercise" :
                             "exercises"}}</p>
                         <p><span class="time-icon"></span>~{{selectedWorkout.estimateTime}}</p>
                         <p><span class="cal-icon"></span>~{{selectedWorkout.calcCalories}} calories</p>
@@ -87,7 +87,7 @@
                         </template>
                     </div>
                     <ul>
-                        <li v-for="exercise in selectedWorkout.Wexercises">
+                        <li v-for="exercise in selectedWorkout.workoutExercises">
                             <p>{{exercise.name}}</p>
                             <div class="toggling">
                                 <button class="descToggle" @click="exercise.showDescription = !exercise.showDescription, toggleDescriptions(exercise)">
@@ -117,7 +117,7 @@
                 <ul id="workouts">
                     <li v-for="w in workouts" @click="selectedWorkout = w, scrollTop() " class="workoutdiv">
                         <h2>{{w.name}}</h2>
-                        <p><span class="workout-icon"></span>{{w.Wexercises.length}} {{w.Wexercises.length == 1 ?
+                        <p><span class="workout-icon"></span>{{w.workoutExercises.length}} {{w.workoutExercises.length == 1 ?
                             "exercise" :
                             "exercises"}}</p>
                         <p><span class="time-icon"></span>~{{w.estimateTime}}</p>
